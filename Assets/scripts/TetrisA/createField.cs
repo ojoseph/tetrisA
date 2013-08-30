@@ -365,6 +365,14 @@ public class createField : MonoBehaviour {
 	
 	//For Displays the info
 	void Update(){
+		
+		tableMapInfo();
+		
+	}
+	
+	
+	void tableMapInfo(){
+		
 		compile = "";
 		int theNumRows = (theField.Length/elmByRows);  
 		
@@ -377,14 +385,13 @@ public class createField : MonoBehaviour {
 				
 				print("INCREEE CEHCK " + incre);	
 				compile += theTileNames[theRow, incre] + ":   " + theField[theRow, incre].ToString() + "     ";
-			
 			}
 			
 			compile += "\n";
 		}	
 		
+		
 	}
-	
 	
 	//Debug Tool
 	void OnGUI(){
