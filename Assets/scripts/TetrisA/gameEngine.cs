@@ -36,13 +36,35 @@ public class gameEngine : MonoBehaviour {
 		{2}, //G
 	};
 	
+	
+	public static int[,] cubeFormTest2 = new int[,]
+	{
+	    {5,2}, //A
+		{0,0}, //B
+		{0,0}, //C
+		{0,0}, //D
+		{0,5}, //E
+		{0,2}, //F
+		{0,0}, //G
+	};
+	
+	
+	
+	
+	
+	
+	//Need to create a cube pool
+	
+	
+	
+	
 	//Checking rows
 	int changeRow = (createField.theField.Length/7)-1;
 	
 	int nextBelow1 = 1;
 	
 	
-	//GameObj that serves to acces the GameManger
+	//GameObj that serves to acces the GameManager
 	GameObject connectToGameManager;
 	
 	//int smallTestCube = 0;
@@ -120,13 +142,45 @@ public class gameEngine : MonoBehaviour {
 		
 		//Step 2
 		
-		for(int u = 0; u <  cubeFormTest.Length; u++ ){
+		/*for(int u = 0; u <  cubeFormTest.Length; u++ ){
 			
 			 
 			//we copy the info and see what happens
 			createField.theField[ u, 10 ] = cubeFormTest[u , 0];
 			//print ("###  " + createField.theField[ u, 10 ] + "    "  + createField.theTileNames[ u, 10 ] + "   // " + cubeFormTest[u , 0]);
+		}*/
+		
+		
+		//print("</~/> " + cubeFormTest2.Length/7 );
+		
+		for(int w = 0; w < cubeFormTest2.Length/7 ;w++){
+			
+			
+			//print ("<!> check Rows: " + cubeFormTest2[0 , w]);
+			
+			for(int u = 0; u <  cubeFormTest2.Length/2; u++ ){
+			
+				print ("<!> check Rows: " + cubeFormTest2[u , w]);
+				//we copy the info and see what happens
+				createField.theField[ u, 10-w ] = cubeFormTest2[u , w];
+				//createField.theField[ u, 10 ] = cubeFormTest2[u , 0];
+				//print ("###  " + createField.theField[ u, 10 ] + "    "  + createField.theTileNames[ u, 10 ] + "   // " + cubeFormTest[u , 0]);
+				
+			}
+			
 		}
+		
+		
+		/*for(int u = 0; u <  cubeFormTest2.Length/2; u++ ){
+			
+			 
+			//we copy the info and see what happens
+			createField.theField[ u, 10 ] = cubeFormTest2[u , 0];
+			//print ("###  " + createField.theField[ u, 10 ] + "    "  + createField.theTileNames[ u, 10 ] + "   // " + cubeFormTest[u , 0]);
+			
+		}*/
+			
+		
 		
 		
 		//Step 3
@@ -155,15 +209,17 @@ public class gameEngine : MonoBehaviour {
 			
 			//print( "<////>" + createField.theTileNames[ theRow, changeRow]);
 			//We populate the rows
-			for(int incre = 0; incre < 1; incre++){
+			for(int incre = 0; incre < 2 ; incre++){
 				
 				//print("%  " +  createField.theTileNames[ theRow, 10 ] + "   " + createField.theField[ theRow, 10 ] );
 				
 				// 1. We check for the next position while within the table range.
 				// 2. If we are still within the range, We check if the next position is free. If so we move, if not we leave it is.
 				
-				//We make sure we dont get out of the index, we reduce 1
-				if( changeRow - nextBelow1 <= 0 ){
+				print ("< WWW> " + (changeRow + nextBelow1));
+				
+				//We make sure we dont get out of the index, when we reduce 1 or when we add 1.
+				if( changeRow - nextBelow1 <= 0 && changeRow + nextBelow1 <= 11){
 					
 				}else{
 					
@@ -172,11 +228,40 @@ public class gameEngine : MonoBehaviour {
 					//If the next position is empty we move below
 					if( createField.theField[ theRow, changeRow - nextBelow1 ] == 0){
 						
+						
+						//We need to check the cube that has been inputted and move it as a set.
+						
+						// 0. We check if next pos is available  [if empty]. If not we stop
+						// 1. we check the current row. If it is not empty than we move the content to the empty position
+						// 2.Then check the row that follows, if it is empty we do nothing. If it contains something we move it the current row.
+						// 3. Then We check for the row again. Does it contain anything? If so we move it one square. If not we do nothing.
+						
+						
+						 
+						
+						
+						
+						//Schema
+						// [ +N,     Center,     -N  ]
+						
+						
 						//The next takes the info of the current position
 						createField.theField[ theRow, changeRow - nextBelow1 ] = createField.theField[ theRow, changeRow ];
 						
+						//print ("<Out Index>"   +  (changeRow-1 + nextBelow1)  + "   changeR: " + changeRow + "    nextBelow: " + nextBelow1);
+						
+						if(changeRow + (nextBelow1 +nextBelow1) < 11){
+							
+							print ("We activate a trap card");
+							createField.theField[ theRow, changeRow + 2 ] = 0; //= createField.theField[ theRow, (changeRow + nextBelow1 )];
+							
+						}
+						//The current position  takes the info from the row behind
+						//createField.theField[ theRow, changeRow ] = createField.theField[ theRow, (changeRow-1 + nextBelow1 )];
+						
+						
 						//We delete the previous position
-						createField.theField[ theRow, changeRow ] = 0;
+						//createField.theField[ theRow, changeRow ] = 0;
 						
 						//We Refresh the visuals
 						connectToGameManager = GameObject.Find("gameManager");

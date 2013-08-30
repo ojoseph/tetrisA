@@ -41,7 +41,7 @@ public class generateCube : MonoBehaviour {
 	public void generateField(){
 		
 		
-		print ("2222222222222222222222222");
+//		print ("2222222222222222222222222");
 		
 		//Get the number of rows
 		int theNumRows = (createField.theField.Length/10);  
@@ -52,7 +52,7 @@ public class generateCube : MonoBehaviour {
 			//We populate the rows
 			for(int incre = 0; incre < 11; incre++){
 				
-				print ("8:   "  +  createField.theTileNames[theRow,incre] + "    " + createField.theField[theRow,incre]);
+				//print ("8:   "  +  createField.theTileNames[theRow,incre] + "    " + createField.theField[theRow,incre]);
 				
 				if(createField.theField[theRow,incre] != 0){
 				 
@@ -71,7 +71,7 @@ public class generateCube : MonoBehaviour {
 					 
 						case 1:
 						
-							print("Creating Pink HEART");
+							//print("Creating Pink HEART");
 						
 							GameObject targetLoc1 = new GameObject();
 							targetLoc1 = GameObject.Find(createField.theTileNames[theRow,incre]);
@@ -84,7 +84,7 @@ public class generateCube : MonoBehaviour {
 						
 						case 2:
 							
-							print("Creating Blue STAR");
+							//print("Creating Blue STAR");
 						
 							GameObject targetLoc2 = new GameObject();
 							targetLoc2 = GameObject.Find(createField.theTileNames[theRow,incre]);
@@ -97,7 +97,7 @@ public class generateCube : MonoBehaviour {
 						
 						case 3:
 							
-							print("Creating TRIANGLE");
+							//print("Creating TRIANGLE");
 						
 							GameObject targetLoc3 = new GameObject();
 							targetLoc3 = GameObject.Find(createField.theTileNames[theRow,incre]);
@@ -110,7 +110,7 @@ public class generateCube : MonoBehaviour {
 						
 						case 4:
 						
-							print("Creating SQUARE GREEN");
+							//print("Creating SQUARE GREEN");
 							
 							GameObject targetLoc4 = new GameObject();
 							targetLoc4 = GameObject.Find(createField.theTileNames[theRow,incre]);
@@ -123,7 +123,7 @@ public class generateCube : MonoBehaviour {
 						
 						case 5:
 						
-							print("Creating SPADE PURPLE");
+							//print("Creating SPADE PURPLE");
 						
 							GameObject targetLoc5 = new GameObject();
 							targetLoc5 = GameObject.Find(createField.theTileNames[theRow,incre]);
@@ -171,7 +171,7 @@ public class generateCube : MonoBehaviour {
 				if( i == gameObjects.Length - 1){
 					
 					//We look for the next tag row
-					print ("We took out one tag Set: " + theTagsList[t]);
+					//print ("We took out one tag Set: " + theTagsList[t]);
 					
 				}
 				
