@@ -149,11 +149,23 @@ public class gameEngine : MonoBehaviour {
 			
 			print( "<////>" + createField.theTileNames[ theRow, changeRow]);
 			//We populate the rows
-			/*for(int incre = 0; incre < 1; incre++){
+			for(int incre = 0; incre < 1; incre++){
 				
-				print("%  " +  createField.theTileNames[ theRow, 10 ] + "   " + createField.theField[ theRow, 10 ] );
+				//print("%  " +  createField.theTileNames[ theRow, 10 ] + "   " + createField.theField[ theRow, 10 ] );
 				
-			}*/
+				// 1. We check for the next position while within the table range.
+				// 2. If we are still within the range, We check if the next position is free. If so we move, if not we leave it is.
+			
+				if( changeRow-1 <= 0 ){
+					
+				}else{
+					
+					print("<! Next Below !> " +  createField.theTileNames[ theRow, changeRow-1 ] + "   " + createField.theField[ theRow, changeRow-1 ] );
+					
+				}
+				
+				
+			}
 			
 		}	
 		
@@ -169,9 +181,22 @@ public class gameEngine : MonoBehaviour {
 		if(changeRow <= 0){
 			
 			//We reset the value
-			changeRow = 11;
+			changeRow = 10;
 			
 		}else{
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			
 			changeRow -= 1;
 			
