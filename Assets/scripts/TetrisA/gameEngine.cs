@@ -256,6 +256,7 @@ public class gameEngine : MonoBehaviour {
 							//We delete the previous position
 						createField.theField[ theRow, changeRow ] = createField.theField[ theRow, changeRow + nextBelow1] ;
 							
+							//WE NEED TO MAKE A LOOP HERE THAT CHECKS BEHIND
 							
 							print ("We activate a trap card: " + createField.theTileNames[ theRow, changeRow + nextBelow1] + "    " + createField.theField[ theRow, changeRow + nextBelow1] );
 							if(createField.theField[ theRow, changeRow ] == 0){
