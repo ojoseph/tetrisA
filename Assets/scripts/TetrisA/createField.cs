@@ -366,6 +366,7 @@ public class createField : MonoBehaviour {
 	//For Displays the info
 	void Update(){
 		
+		//Updates the table info
 		tableMapInfo();
 		
 	}
@@ -379,11 +380,11 @@ public class createField : MonoBehaviour {
 		//Check each Entry in the table and we print it out
 		for(int theRow = theNumRows-1 ; theRow >= 0; theRow--){
 			
-			print("ROWS CEHCK " + theRow);
+			//print("ROWS CEHCK " + theRow);
 			
 			for(int incre = 10; incre >= 0; incre--){
 				
-				print("INCREEE CEHCK " + incre);	
+				//print("INCREEE CEHCK " + incre);	
 				compile += theTileNames[theRow, incre] + ":   " + theField[theRow, incre].ToString() + "     ";
 			}
 			

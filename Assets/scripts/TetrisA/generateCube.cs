@@ -9,6 +9,14 @@ public class generateCube : MonoBehaviour {
 	GameObject aCube;
 	
 	
+ 
+	public GameObject[] gameObjects;
+	
+	
+	// A. 2D array of strings.Where we store the names
+	public static string[] theTagsList = new string[] {"pinkHeart", "greenSquare", "blueStar", "yellowTriangle", "purpleSpade" };
+	
+	
 	// Use this for initialization
 	void Start () {
 		
@@ -142,16 +150,33 @@ public class generateCube : MonoBehaviour {
 		
 	}
 	
+
 	
-	void deleteAllCubes(){
-		GameObject[] gos;
-        gos = GameObject.FindGameObjectsWithTag("purpleSpade");
-		Destroy(gos[0]);
+	public void deleteAllCubes(){
 		
-		/*for(int u = 0; gos.Length > 0; u++){
-			
-			Destroy(gos[u]);
-		}*/
+		
+		 
+		
+		for(int t = 0; t < theTagsList.Length; t++){
+		gameObjects = GameObject.FindGameObjectsWithTag (theTagsList[t]);
+ 		/*gameObjects = GameObject.FindGameObjectsWithTag ("greenSquare"); 
+		gameObjects = GameObject.FindGameObjectsWithTag ("blueStar");*/ 
+		
+		
+			for(var i = 0 ; i < gameObjects.Length ; i ++){
+				
+				Destroy(gameObjects[i]);
+				
+				//A simple message that let us know that all ttags from this section are done.
+				if( i == gameObjects.Length - 1){
+					
+					//We look for the next tag row
+					print ("We took out one tag Set: " + theTagsList[t]);
+					
+				}
+				
+			}
+		}
 		
 	}
 	

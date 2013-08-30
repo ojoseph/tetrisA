@@ -42,6 +42,8 @@ public class gameEngine : MonoBehaviour {
 	int nextBelow1 = 1;
 	
 	
+	//GameObj that serves to acces the GameManger
+	GameObject connectToGameManager;
 	
 	//int smallTestCube = 0;
 	
@@ -151,7 +153,7 @@ public class gameEngine : MonoBehaviour {
 		int theNumRows = (createField.theField.Length/10); 
 		for(int theRow = 0 ; theRow < theNumRows; theRow++){
 			
-			print( "<////>" + createField.theTileNames[ theRow, changeRow]);
+			//print( "<////>" + createField.theTileNames[ theRow, changeRow]);
 			//We populate the rows
 			for(int incre = 0; incre < 1; incre++){
 				
@@ -165,13 +167,22 @@ public class gameEngine : MonoBehaviour {
 					
 				}else{
 					
-					print("<! Next Below !> " +  createField.theTileNames[ theRow, changeRow - nextBelow1 ] + "   " + createField.theField[ theRow, changeRow - nextBelow1 ] );
+					//print("<! Next Below !> " +  createField.theTileNames[ theRow, changeRow - nextBelow1 ] + "   " + createField.theField[ theRow, changeRow - nextBelow1 ] );
 					
 					//If the next position is empty we move below
 					if( createField.theField[ theRow, changeRow - nextBelow1 ] == 0){
 						
 						//The next takes the info of the current position
 						createField.theField[ theRow, changeRow - nextBelow1 ] = createField.theField[ theRow, changeRow ];
+						
+						//We delete the previous position
+						createField.theField[ theRow, changeRow ] = 0;
+						
+						//We Refresh the visuals
+						connectToGameManager = GameObject.Find("gameManager");
+						connectToGameManager.GetComponent<generateCube>().deleteAllCubes();
+						connectToGameManager.GetComponent<generateCube>().generateField();
+						
 					}
 					
 				}
