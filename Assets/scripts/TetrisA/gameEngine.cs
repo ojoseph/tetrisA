@@ -250,18 +250,29 @@ public class gameEngine : MonoBehaviour {
 						
 						//print ("<Out Index>"   +  (changeRow-1 + nextBelow1)  + "   changeR: " + changeRow + "    nextBelow: " + nextBelow1);
 						
-						if(changeRow + (nextBelow1 +nextBelow1) < 11){
+						if(changeRow + (nextBelow1 +nextBelow1) < 12){
 							
-							print ("We activate a trap card");
-							createField.theField[ theRow, changeRow + 2 ] = 0; //= createField.theField[ theRow, (changeRow + nextBelow1 )];
 							
+							//We delete the previous position
+						createField.theField[ theRow, changeRow ] = createField.theField[ theRow, changeRow + nextBelow1] ;
+							
+							
+							print ("We activate a trap card: " + createField.theTileNames[ theRow, changeRow + nextBelow1] + "    " + createField.theField[ theRow, changeRow + nextBelow1] );
+							if(createField.theField[ theRow, changeRow ] == 0){
+								createField.theField[ theRow, changeRow ] = createField.theField[ theRow, changeRow + nextBelow1] ;
+							}
+							//createField.theField[ theRow, changeRow ] = 0; //= createField.theField[ theRow, (changeRow + nextBelow1 )];
+							
+						}else{
+							
+							//If it is empty we get here. We delete the previous position an put nothing
+							createField.theField[ theRow, changeRow ] = 0 ;
 						}
-						//The current position  takes the info from the row behind
-						//createField.theField[ theRow, changeRow ] = createField.theField[ theRow, (changeRow-1 + nextBelow1 )];
+						 
 						
 						
 						//We delete the previous position
-						//createField.theField[ theRow, changeRow ] = 0;
+						//createField.theField[ theRow, changeRow ] = createField.theField[ theRow, changeRow + nextBelow1] ;
 						
 						//We Refresh the visuals
 						connectToGameManager = GameObject.Find("gameManager");
@@ -296,7 +307,7 @@ public class gameEngine : MonoBehaviour {
 			changeRow -= 1;
 			
 			//It calls itself again
-	 		Invoke("moveBlocks", 1); 
+	 		Invoke("moveBlocks", 3); 
 		}
 		
 	
