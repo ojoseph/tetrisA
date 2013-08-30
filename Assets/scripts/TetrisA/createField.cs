@@ -369,10 +369,13 @@ public class createField : MonoBehaviour {
 		int theNumRows = (theField.Length/elmByRows);  
 		
 		//Check each Entry in the table and we print it out
-		for(int theRow = 0 ; theRow < theNumRows; theRow++){
+		for(int theRow = theNumRows-1 ; theRow >= 0; theRow--){
 			
-			for(int incre = 0; incre < 11; incre++){
-					
+			print("ROWS CEHCK " + theRow);
+			
+			for(int incre = 10; incre >= 0; incre--){
+				
+				print("INCREEE CEHCK " + incre);	
 				compile += theTileNames[theRow, incre] + ":   " + theField[theRow, incre].ToString() + "     ";
 			
 			}

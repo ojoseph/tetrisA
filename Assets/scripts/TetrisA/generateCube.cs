@@ -144,7 +144,14 @@ public class generateCube : MonoBehaviour {
 	
 	
 	void deleteAllCubes(){
+		GameObject[] gos;
+        gos = GameObject.FindGameObjectsWithTag("purpleSpade");
+		Destroy(gos[0]);
 		
+		/*for(int u = 0; gos.Length > 0; u++){
+			
+			Destroy(gos[u]);
+		}*/
 		
 	}
 	
