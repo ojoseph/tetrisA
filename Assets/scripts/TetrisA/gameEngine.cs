@@ -27,16 +27,20 @@ public class gameEngine : MonoBehaviour {
 	// A. 2D array of ints.
 	public static int[,] cubeFormTest = new int[,]
 	{
-	    {1}, //A
+	    {4}, //A
 		{1}, //B
 		{1}, //C
 		{0}, //D
 		{1}, //E
-		{1}, //F
-		{1}, //G
+		{5}, //F
+		{2}, //G
 	};
 	
-	int smallTestCube = 0;
+	
+	int changeRow = (createField.theField.Length/7)-1;
+	
+	//int smallTestCube = 0;
+	
 	
 	
 	
@@ -52,8 +56,22 @@ public class gameEngine : MonoBehaviour {
 	// [5]	Spade
 	
 	
+	
+	
+	
+	
+	
+	
+	//----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+
+	
+	
 	// Use this for initialization
 	public void initMe (){
+		
+		
+		print("++++++++++  " +  changeRow  + "  ++++++++++");
 		
 		importMapData();
 		
@@ -63,15 +81,13 @@ public class gameEngine : MonoBehaviour {
 		
 		smallTestCube = Random.Range(1,5);*/
 	 
-		
-		
-		
-		
+ 
 		//0. We create a row and add the info in the array.
 		//1. We loop thriugh the cubes we want to add.		
 		//2. We copy all the info into the top row of the array
 		//3. We generate the cube's visual      //3a. We delete all the cubes that were on the scene.
-		//4. We start moving them until there is no space for them to move.
+		//4. We start moving them until there is no space for them to move.  //4a. We look below and make sure we are not out of range. We check if the next row is empty. If so, we move the cubes a row below
+		//5. We find the matches and delete any match of 3 or more. 
 				
 				
 		print("####"  + createField.theTileNames[0,10]);
@@ -125,9 +141,45 @@ public class gameEngine : MonoBehaviour {
 	
 	void moveBlocks(){
 		
+		//Step4
+		
+		//Get the number of rows
+		int theNumRows = (createField.theField.Length/10); 
+		for(int theRow = 0 ; theRow < theNumRows; theRow++){
+			
+			print( "<////>" + createField.theTileNames[ theRow, changeRow]);
+			//We populate the rows
+			/*for(int incre = 0; incre < 1; incre++){
+				
+				print("%  " +  createField.theTileNames[ theRow, 10 ] + "   " + createField.theField[ theRow, 10 ] );
+				
+			}*/
+			
+		}	
+		
+		
+		
+		
+		
+		
+		
 		//print("***" + Random.Range(0,(createField.theField.Length-1)/10));
-		//It calls itself again
-	 	Invoke("moveBlocks", 1); 
+		
+		//We change row while staying within the table's index.
+		if(changeRow <= 0){
+			
+			//We reset the value
+			changeRow = 11;
+			
+		}else{
+			
+			changeRow -= 1;
+			
+			//It calls itself again
+	 		Invoke("moveBlocks", 1); 
+		}
+		
+	
 	}
 	
 	
