@@ -70,6 +70,7 @@ public class generateCube : MonoBehaviour {
 						
 							aCube = Instantiate( Resources.Load("blocks/heart"),  new Vector3(targetLoc1.transform.position.x, 0, targetLoc1.transform.position.z), transform.localRotation) as GameObject;
 							aCube.name = createField.theTileNames[ theRow,incre ];
+							aCube.tag = "pinkHeart";
 						
 						break;
 						
@@ -82,44 +83,47 @@ public class generateCube : MonoBehaviour {
 						
 							aCube = Instantiate( Resources.Load("blocks/star"),  new Vector3(targetLoc2.transform.position.x, 0, targetLoc2.transform.position.z), transform.localRotation) as GameObject;
 							aCube.name = createField.theTileNames[ theRow,incre ];
+							aCube.tag = "blueStar";
 						
 						break;
 						
 						case 3:
 							
-							print("Creating YELLOW TRIANGLE");
+							print("Creating TRIANGLE");
 						
 							GameObject targetLoc3 = new GameObject();
 							targetLoc3 = GameObject.Find(createField.theTileNames[theRow,incre]);
 						
 							aCube = Instantiate( Resources.Load("blocks/triangle"),  new Vector3(targetLoc3.transform.position.x, 0, targetLoc3.transform.position.z), transform.localRotation) as GameObject;
 							aCube.name = createField.theTileNames[ theRow,incre ];
-						
+							aCube.tag = "yellowTriangle";
 						 
 						break;
 						
 						case 4:
 						
-							print("Creating YELLOW SQUARE GREEN");
+							print("Creating SQUARE GREEN");
 							
 							GameObject targetLoc4 = new GameObject();
 							targetLoc4 = GameObject.Find(createField.theTileNames[theRow,incre]);
 						
 							aCube = Instantiate( Resources.Load("blocks/square"),  new Vector3(targetLoc4.transform.position.x, 0, targetLoc4.transform.position.z), transform.localRotation) as GameObject;
 							aCube.name = createField.theTileNames[ theRow,incre ];
-						
+							aCube.tag = "greenSquare";
 						 
 						break;
 						
 						case 5:
 						
-							print("Creating YELLOW SPADE PURPLE");
+							print("Creating SPADE PURPLE");
 						
 							GameObject targetLoc5 = new GameObject();
 							targetLoc5 = GameObject.Find(createField.theTileNames[theRow,incre]);
 						
 							aCube = Instantiate( Resources.Load("blocks/spade"),  new Vector3(targetLoc5.transform.position.x, 0, targetLoc5.transform.position.z), transform.localRotation) as GameObject;
 							aCube.name = createField.theTileNames[ theRow,incre ];
+							aCube.tag = "purpleSpade";
+						
 						
 						break;
 						

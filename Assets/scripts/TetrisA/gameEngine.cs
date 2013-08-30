@@ -36,8 +36,12 @@ public class gameEngine : MonoBehaviour {
 		{2}, //G
 	};
 	
-	
+	//Checking rows
 	int changeRow = (createField.theField.Length/7)-1;
+	
+	int nextBelow1 = 1;
+	
+	
 	
 	//int smallTestCube = 0;
 	
@@ -155,19 +159,27 @@ public class gameEngine : MonoBehaviour {
 				
 				// 1. We check for the next position while within the table range.
 				// 2. If we are still within the range, We check if the next position is free. If so we move, if not we leave it is.
-			
-				if( changeRow-1 <= 0 ){
+				
+				//We make sure we dont get out of the index, we reduce 1
+				if( changeRow - nextBelow1 <= 0 ){
 					
 				}else{
 					
-					print("<! Next Below !> " +  createField.theTileNames[ theRow, changeRow-1 ] + "   " + createField.theField[ theRow, changeRow-1 ] );
+					print("<! Next Below !> " +  createField.theTileNames[ theRow, changeRow - nextBelow1 ] + "   " + createField.theField[ theRow, changeRow - nextBelow1 ] );
+					
+					//If the next position is empty we move below
+					if( createField.theField[ theRow, changeRow - nextBelow1 ] == 0){
+						
+						//The next takes the info of the current position
+						createField.theField[ theRow, changeRow - nextBelow1 ] = createField.theField[ theRow, changeRow ];
+					}
 					
 				}
 				
 				
-			}
+			}//End For
 			
-		}	
+		}//End For	
 		
 		
 		
@@ -184,20 +196,7 @@ public class gameEngine : MonoBehaviour {
 			changeRow = 10;
 			
 		}else{
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+ 
 			changeRow -= 1;
 			
 			//It calls itself again
