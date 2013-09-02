@@ -302,15 +302,16 @@ public class gameEngine : MonoBehaviour {
 								
 								
 								createField.theField[ theRow, changeRow + nextBelow1 ] = createField.theField[ theRow, changeRow + nextBelow1 +nextBelow1];
+								createField.theField[ theRow, changeRow + nextBelow1 +nextBelow1] = 0;
+							
+								
 								
 								/*if( changeRow< 10 ){
 									for(int y = 0; (y + changeRow) <   10; y++){
 										
 										//createField.theField[ theRow, changeRow + nextBelow1 ] = 0;
 										print("++++++++++++++: "+ (y + changeRow) +"   "  + createField.theTileNames[ theRow, changeRow + y ] + "     " + createField.theField[ theRow, changeRow + y ]);
-										
-									
-										
+ 
 									}
 								}*/
 								
