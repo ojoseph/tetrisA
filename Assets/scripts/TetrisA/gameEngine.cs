@@ -50,6 +50,19 @@ public class gameEngine : MonoBehaviour {
 	
 	
 	
+	public static int[,] cubeFormTest3 = new int[,]
+	{
+	    {5,2,3}, //A
+		{5,6,3}, //B
+		{0,0,5}, //C
+		{0,0,3}, //D
+		{0,5,4}, //E
+		{0,2,3}, //F
+		{0,0,1}, //G
+	};
+	
+	
+	
 	
 	
 	
@@ -153,16 +166,18 @@ public class gameEngine : MonoBehaviour {
 		
 		//print("</~/> " + cubeFormTest2.Length/7 );
 		
-		for(int w = 0; w < cubeFormTest2.Length/7 ;w++){
+		for(int w = 0; w < cubeFormTest3.Length/7 ;w++){
+			
+			
 			
 			
 			//print ("<!> check Rows: " + cubeFormTest2[0 , w]);
 			
-			for(int u = 0; u <  cubeFormTest2.Length/2; u++ ){
+			for(int u = 0; u <  cubeFormTest3.Length/(cubeFormTest3.Length/7); u++ ){
 			
-				print ("<!> check Rows: " + cubeFormTest2[u , w]);
+				print ("<!> check Rows: " + cubeFormTest3[u , w]);
 				//we copy the info and see what happens
-				createField.theField[ u, 10-w ] = cubeFormTest2[u , w];
+				createField.theField[ u, 10-w ] = cubeFormTest3[u , w];
 				//createField.theField[ u, 10 ] = cubeFormTest2[u , 0];
 				//print ("###  " + createField.theField[ u, 10 ] + "    "  + createField.theTileNames[ u, 10 ] + "   // " + cubeFormTest[u , 0]);
 				
@@ -216,12 +231,25 @@ public class gameEngine : MonoBehaviour {
 				// 1. We check for the next position while within the table range.
 				// 2. If we are still within the range, We check if the next position is free. If so we move, if not we leave it is.
 				
-				print ("< WWW> " + (changeRow + nextBelow1));
+				print ("< WWW> " + (changeRow + nextBelow1) + "     Rown/7: "   + cubeFormTest3.Length/7 );
 				
 				//We make sure we dont get out of the index, when we reduce 1 or when we add 1.
 				if( changeRow - nextBelow1 <= 0 && changeRow + nextBelow1 <= 11){
 					
 				}else{
+					
+					
+					//We check the current Item.
+					/*if(createField.theField[ theRow, changeRow ] != 0){
+						
+						print ( "<D> is not empty " + createField.theTileNames[ theRow, changeRow ] + "   " + createField.theField[ theRow, changeRow ] );
+						
+					}*/
+					
+					
+					
+					
+					
 					
 					//print("<! Next Below !> " +  createField.theTileNames[ theRow, changeRow - nextBelow1 ] + "   " + createField.theField[ theRow, changeRow - nextBelow1 ] );
 					
@@ -250,18 +278,43 @@ public class gameEngine : MonoBehaviour {
 						
 						//print ("<Out Index>"   +  (changeRow-1 + nextBelow1)  + "   changeR: " + changeRow + "    nextBelow: " + nextBelow1);
 						
-						if(changeRow + (nextBelow1 +nextBelow1) < 12){
+						if(changeRow + (nextBelow1 + nextBelow1) < 12){
 							
 							
 							//We delete the previous position
-						createField.theField[ theRow, changeRow ] = createField.theField[ theRow, changeRow + nextBelow1] ;
+							createField.theField[ theRow, changeRow ] = createField.theField[ theRow, changeRow + nextBelow1 ];
 							
 							//WE NEED TO MAKE A LOOP HERE THAT CHECKS BEHIND
 							
 							print ("We activate a trap card: " + createField.theTileNames[ theRow, changeRow + nextBelow1] + "    " + createField.theField[ theRow, changeRow + nextBelow1] );
 							if(createField.theField[ theRow, changeRow ] == 0){
-								createField.theField[ theRow, changeRow ] = createField.theField[ theRow, changeRow + nextBelow1] ;
+								
+								createField.theField[ theRow, changeRow ] = createField.theField[ theRow, changeRow + nextBelow1];
+								
 							}
+							
+							
+							if(createField.theField[ theRow, changeRow ] != 0){
+								
+								createField.theField[ theRow, changeRow + nextBelow1 ] = 0;
+								//print ( "<D> is not empty " + createField.theTileNames[ theRow, changeRow ] + "   " + createField.theField[ theRow, changeRow ] );
+								
+							}
+							
+							
+							/*int someTempRow = theRow;
+							int someTempChangeRow = changeRow;
+							while(createField.theField[ someTempRow, someTempChangeRow ] != 0){
+								
+								print ( "< While Loop > is not empty " + createField.theTileNames[ theRow, changeRow ] + "   " + createField.theField[ theRow, changeRow ] );
+								createField.theField[ theRow, changeRow + nextBelow1 ] = 0;
+								someTempRow += 1;
+								someTempChangeRow += 1;
+								
+							}*/
+							
+							
+							
 							//createField.theField[ theRow, changeRow ] = 0; //= createField.theField[ theRow, (changeRow + nextBelow1 )];
 							
 						}else{
