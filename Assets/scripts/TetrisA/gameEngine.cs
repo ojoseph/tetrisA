@@ -291,28 +291,53 @@ public class gameEngine : MonoBehaviour {
 								
 								createField.theField[ theRow, changeRow ] = createField.theField[ theRow, changeRow + nextBelow1];
 								
+								
 							}
 							
 							
+							//We recover a position where a bloc is assigned.
 							if(createField.theField[ theRow, changeRow ] != 0){
 								
-								createField.theField[ theRow, changeRow + nextBelow1 ] = 0;
+								print("-----Current: " + "   "  + createField.theTileNames[ theRow, changeRow ] + "     " + createField.theField[ theRow, changeRow ]);
+								
+								
+								createField.theField[ theRow, changeRow + nextBelow1 ] = createField.theField[ theRow, changeRow + nextBelow1 +nextBelow1];
+								
+								/*if( changeRow< 10 ){
+									for(int y = 0; (y + changeRow) <   10; y++){
+										
+										//createField.theField[ theRow, changeRow + nextBelow1 ] = 0;
+										print("++++++++++++++: "+ (y + changeRow) +"   "  + createField.theTileNames[ theRow, changeRow + y ] + "     " + createField.theField[ theRow, changeRow + y ]);
+										
+									
+										
+									}
+								}*/
+								
+								
+								/*int someTempRow = theRow;
+								int someTempChangeRow = changeRow;
+								while(createField.theField[ someTempRow, someTempChangeRow ] != 0 && theRow < 10 && changeRow < 10){
+									
+									print ( "< While Loop > is not empty " + createField.theTileNames[ theRow, changeRow ] + "   " + createField.theField[ theRow, changeRow ] );
+									createField.theField[ theRow, changeRow + nextBelow1 ] = 0;
+									someTempRow += 1;
+									//someTempChangeRow += 1;
+									
+								}*/
+								
+								
+								
+							
+								
+								
+								//createField.theField[ theRow, changeRow + nextBelow1 ] = 0;
 								//print ( "<D> is not empty " + createField.theTileNames[ theRow, changeRow ] + "   " + createField.theField[ theRow, changeRow ] );
 								
 							}
 							
 							
-							/*int someTempRow = theRow;
-							int someTempChangeRow = changeRow;
-							while(createField.theField[ someTempRow, someTempChangeRow ] != 0){
-								
-								print ( "< While Loop > is not empty " + createField.theTileNames[ theRow, changeRow ] + "   " + createField.theField[ theRow, changeRow ] );
-								createField.theField[ theRow, changeRow + nextBelow1 ] = 0;
-								someTempRow += 1;
-								someTempChangeRow += 1;
-								
-							}*/
-							
+						
 							
 							
 							//createField.theField[ theRow, changeRow ] = 0; //= createField.theField[ theRow, (changeRow + nextBelow1 )];
