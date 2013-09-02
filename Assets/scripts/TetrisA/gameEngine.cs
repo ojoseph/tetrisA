@@ -300,9 +300,33 @@ public class gameEngine : MonoBehaviour {
 								
 								print("-----Current: " + "   "  + createField.theTileNames[ theRow, changeRow ] + "     " + createField.theField[ theRow, changeRow ]);
 								
-								
-								createField.theField[ theRow, changeRow + nextBelow1 ] = createField.theField[ theRow, changeRow + nextBelow1 +nextBelow1];
-								createField.theField[ theRow, changeRow + nextBelow1 +nextBelow1] = 0;
+								int someTempRow = theRow;
+								int someTempChangeRow = changeRow;
+								int theIncre = 1;
+								 
+								while(createField.theField[ someTempRow, someTempChangeRow ]  != 0 &&  (someTempRow + theIncre) < 10){
+									
+									//someTempRow
+									someTempRow += theIncre;
+									print("#####: "   +  someTempRow);
+ 
+									if(someTempRow > 10){
+										break;
+									}
+									
+									if( (someTempRow + theIncre) > 10){
+										break;
+									}
+									
+									createField.theField[ theRow, someTempRow ] = createField.theField[ theRow, changeRow + someTempRow + theIncre + theIncre];
+									createField.theField[ theRow, someTempRow + theIncre + theIncre] = 0;
+									
+									//print("@@@: " + createField.theField[ theRow, changeRow ]);
+									
+								}
+								 
+								/*createField.theField[ theRow, changeRow + nextBelow1 ] = createField.theField[ theRow, changeRow + nextBelow1 + nextBelow1];
+								createField.theField[ theRow, changeRow + nextBelow1 +nextBelow1] = 0;*/
 							
 								
 								
