@@ -298,39 +298,19 @@ public class gameEngine : MonoBehaviour {
 							//We recover a position where a bloc is assigned.
 							if(createField.theField[ theRow, changeRow ] != 0){
 								
-								print("-----Current: " + "   "  + createField.theTileNames[ theRow, changeRow ] + "     " + createField.theField[ theRow, changeRow ]);
+								print("-----Current: " + "   "  + createField.theTileNames[ theRow, changeRow ] + "   " + createField.theField[ theRow, changeRow ] + " Row Lenght: " + cubeFormTest3.Length/7);
 								
-								int someTempRow = theRow;
-								int someTempChangeRow = changeRow;
-								int theIncre = 1;
 								 
-								while(createField.theField[ someTempRow, someTempChangeRow ]  != 0 &&  (someTempRow + theIncre) < 10){
-									
-									//someTempRow
-									someTempRow += theIncre;
-									print("#####: "   +  someTempRow);
- 
-									if(someTempRow > 10){
-										break;
-									}
-									
-									if( (someTempRow + theIncre) > 10){
-										break;
-									}
-									
-									createField.theField[ theRow, someTempRow ] = createField.theField[ theRow, changeRow + someTempRow + theIncre + theIncre];
-									createField.theField[ theRow, someTempRow + theIncre + theIncre] = 0;
-									
-									//print("@@@: " + createField.theField[ theRow, changeRow ]);
-									
-								}
+								
+								createField.theField[ theRow, changeRow + nextBelow1 ] = createField.theField[ theRow, changeRow + (cubeFormTest3.Length/7)-1];
+								createField.theField[ theRow, changeRow + (cubeFormTest3.Length/7)-1] = 0;
 								 
 								/*createField.theField[ theRow, changeRow + nextBelow1 ] = createField.theField[ theRow, changeRow + nextBelow1 + nextBelow1];
 								createField.theField[ theRow, changeRow + nextBelow1 +nextBelow1] = 0;*/
 							
 								
 								
-								/*if( changeRow< 10 ){
+								/*if( createField.theField[ theRow, changeRow + nextBelow1 ] ==0 && changeRow< 10 ){
 									for(int y = 0; (y + changeRow) <   10; y++){
 										
 										//createField.theField[ theRow, changeRow + nextBelow1 ] = 0;
@@ -352,7 +332,7 @@ public class gameEngine : MonoBehaviour {
 								}*/
 								
 								
-								
+								 
 							
 								
 								
