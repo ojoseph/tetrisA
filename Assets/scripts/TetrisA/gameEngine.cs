@@ -245,12 +245,7 @@ public class gameEngine : MonoBehaviour {
 				
 				print ("< WWW> " + (changeRow + nextBelow1) + "     Rown/7: "   + cubeTemplate.Length/7 );
 				
-				// If the  next case is not empty we can start Generating a new cube.
-				if( createField.theField[ theRow, changeRow - nextBelow1 - nextBelow1 ] != 0){
-					
-					print ("//////////////  Its Empty //////////////" +  createField.theTileNames[ theRow, changeRow - nextBelow1 - nextBelow1 ]  + "     " +  createField.theField[ theRow, changeRow - nextBelow1 - nextBelow1 ] );
-					print ("GENERATE A NEW CUBE HERE.");
-				}
+				
 				
 				
 				//We make sure we dont get out of the index, when we reduce 1 or when we add 1.
@@ -260,6 +255,13 @@ public class gameEngine : MonoBehaviour {
 					
 				}else{
 					
+					
+					// If the  next case is not empty we can start Generating a new cube.
+					if( createField.theField[ theRow, changeRow - nextBelow1 - nextBelow1 ] != 0){
+						
+						print ("//////////////  Its Empty //////////////" +  createField.theTileNames[ theRow, changeRow - nextBelow1 - nextBelow1 ]  + "     " +  createField.theField[ theRow, changeRow - nextBelow1 - nextBelow1 ] );
+						print ("GENERATE A NEW CUBE HERE.");
+					}
 					
 					//We check the current Item.
 					/*if(createField.theField[ theRow, changeRow ] != 0){
