@@ -96,7 +96,7 @@ public class createField : MonoBehaviour {
 		//Resets the data in the table
 		softReset();
 		
-		//Set the baseBlocks
+		//Set the base Blocks Positions
 		setDefaultBlocks();
 		
 		//Creates the field.
@@ -175,7 +175,7 @@ public class createField : MonoBehaviour {
 		
 		
 		//We set the rows
-		for(int theRow = 0 ; theRow < theNumRows; theRow++){
+		for(int theRow = 0 ; theRow < (theNumRows /*-2*/); theRow++){
 			
 			//We populate the rows
 			for(int incre = 1; incre < 2; incre++){
