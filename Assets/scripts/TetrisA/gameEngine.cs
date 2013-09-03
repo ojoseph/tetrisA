@@ -106,7 +106,7 @@ public class gameEngine : MonoBehaviour {
 	
 	//int smallTestCube = 0;
 	
-	
+	int nbOfRowsViewd = 0;
 	
 	
 	
@@ -174,7 +174,7 @@ public class gameEngine : MonoBehaviour {
 			
 			for(int u = 0; u <  cubeTemplate.Length/(cubeTemplate.Length/7); u++ ){
 			
-				print ("<!> check Rows: " + cubeTemplate[u , w]);
+				//print ("<!> check Rows: " + cubeTemplate[u , w]);
 				//we copy the info and see what happens
 				createField.theField[ u, 10-w ] = cubeTemplate[u , w];
 				//createField.theField[ u, 10 ] = cubeFormTest2[u , 0];
@@ -216,12 +216,47 @@ public class gameEngine : MonoBehaviour {
 	
 	void moveBlocks(){
 		
+		nbOfRowsViewd += 1;
+		
+		print ("9999999999999999999999  " + nbOfRowsViewd +"  999999999999999999999999");
+		
+		
+		
+		//We the function is done checking through all the rows. We reset this function and generate a new cube.
+		if(nbOfRowsViewd >= 10){
+				
+			//We reset the value
+			changeRow = 10;
+			
+			//We reset the counter as well 
+			nbOfRowsViewd = 0;
+			
+			
+			generateCube();
+			
+			//We generate the visual
+			generateCube theGenerateCube = GetComponent<generateCube>();
+			theGenerateCube.generateField();
+			
+			//We start by calling the fct
+			//Invoke("moveBlocks", 1);
+			
+			
+			
+		}
+		
+		
+		
+		
 		//Step4
 		
 		//Get the number of rows
 		int theNumRows = (createField.theField.Length/10); 
-		for(int theRow = 0 ; theRow < theNumRows; theRow++){
+		for(int theRow = 0; theRow < theNumRows; theRow++){
 			
+			//We check if we came to an end.
+			print( "<////>  " + theRow);
+		 
 			//print( "<////>" + createField.theTileNames[ theRow, changeRow]);
 			//We populate the rows
 			for(int incre = 0; incre < 2 ; incre++){
@@ -245,10 +280,10 @@ public class gameEngine : MonoBehaviour {
 					
 					//generateCube();
 					 //We generate the visual
-					generateCube theGenerateCube = GetComponent<generateCube>();
+					/*generateCube theGenerateCube = GetComponent<generateCube>();
 					theGenerateCube.generateField();
 					//We start by calling the fct
-					Invoke("moveBlocks", 1);
+					Invoke("moveBlocks", 1);*/
 					
 				}else{
 					
@@ -258,6 +293,7 @@ public class gameEngine : MonoBehaviour {
 						
 						print ("//////////////  Its Empty //////////////" +  createField.theTileNames[ theRow, changeRow - nextBelow1 - nextBelow1 ]  + "     " +  createField.theField[ theRow, changeRow - nextBelow1 - nextBelow1 ] );
 						print ("GENERATE A NEW CUBE HERE.");
+						
 					}
 					
 					//We check the current Item.
@@ -372,8 +408,8 @@ public class gameEngine : MonoBehaviour {
 		
 		//We randomly choose a  cube type. 
 		
-		
-		switch(Random.Range(1,2)){
+		switch(3){
+		//switch(Random.Range(1,2)){
 			case 1:
 				cubeTemplate = cubeFormTest;
 			break;
@@ -392,16 +428,13 @@ public class gameEngine : MonoBehaviour {
 		 
 		for(int w = 0; w < cubeTemplate.Length/7 ;w++){
  
-			//print ("<!> check Rows: " + cubeFormTest2[0 , w]);
-			
 			for(int u = 0; u <  cubeTemplate.Length/(cubeTemplate.Length/7); u++ ){
 			
 				print ("<!> check Rows: " + cubeTemplate[u , w]);
+				
 				//we copy the info and see what happens
 				createField.theField[ u, 10-w ] = cubeTemplate[u , w];
-				//createField.theField[ u, 10 ] = cubeFormTest2[u , 0];
-				//print ("###  " + createField.theField[ u, 10 ] + "    "  + createField.theTileNames[ u, 10 ] + "   // " + cubeFormTest[u , 0]);
-				
+				 
 			}
 			
 		}
