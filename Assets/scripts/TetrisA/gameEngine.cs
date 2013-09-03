@@ -63,6 +63,25 @@ public class gameEngine : MonoBehaviour {
 	
 	
 	
+	public static int[,] cubeTemplate = new int[,]
+	{
+	    {1}, //A
+		{1}, //B
+		{1}, //C
+		{1}, //D
+		{1}, //E
+		{1}, //F
+		{1}, //G
+	};
+	
+	
+	
+	
+	enum rowType{
+		oneRow,
+		twoRows,
+		threeRows
+	}
 	
 	
 	
@@ -114,7 +133,7 @@ public class gameEngine : MonoBehaviour {
 		
 		print("++++++++++  " +  changeRow  + "  ++++++++++");
 		
-		importMapData();
+		 
 		
 		//every seconds we move the blocks 
 		
@@ -300,44 +319,8 @@ public class gameEngine : MonoBehaviour {
 								
 								print("-----Current: " + "   "  + createField.theTileNames[ theRow, changeRow ] + "   " + createField.theField[ theRow, changeRow ] + " Row Lenght: " + cubeFormTest3.Length/7);
 								
-								 
-								
 								createField.theField[ theRow, changeRow + nextBelow1 ] = createField.theField[ theRow, changeRow + (cubeFormTest3.Length/7)-1];
 								createField.theField[ theRow, changeRow + (cubeFormTest3.Length/7)-1] = 0;
-								 
-								/*createField.theField[ theRow, changeRow + nextBelow1 ] = createField.theField[ theRow, changeRow + nextBelow1 + nextBelow1];
-								createField.theField[ theRow, changeRow + nextBelow1 +nextBelow1] = 0;*/
-							
-								
-								
-								/*if( createField.theField[ theRow, changeRow + nextBelow1 ] ==0 && changeRow< 10 ){
-									for(int y = 0; (y + changeRow) <   10; y++){
-										
-										//createField.theField[ theRow, changeRow + nextBelow1 ] = 0;
-										print("++++++++++++++: "+ (y + changeRow) +"   "  + createField.theTileNames[ theRow, changeRow + y ] + "     " + createField.theField[ theRow, changeRow + y ]);
- 
-									}
-								}*/
-								
-								
-								/*int someTempRow = theRow;
-								int someTempChangeRow = changeRow;
-								while(createField.theField[ someTempRow, someTempChangeRow ] != 0 && theRow < 10 && changeRow < 10){
-									
-									print ( "< While Loop > is not empty " + createField.theTileNames[ theRow, changeRow ] + "   " + createField.theField[ theRow, changeRow ] );
-									createField.theField[ theRow, changeRow + nextBelow1 ] = 0;
-									someTempRow += 1;
-									//someTempChangeRow += 1;
-									
-								}*/
-								
-								
-								 
-							
-								
-								
-								//createField.theField[ theRow, changeRow + nextBelow1 ] = 0;
-								//print ( "<D> is not empty " + createField.theTileNames[ theRow, changeRow ] + "   " + createField.theField[ theRow, changeRow ] );
 								
 							}
 							
@@ -398,14 +381,25 @@ public class gameEngine : MonoBehaviour {
 	}
 	
 	
-	void importMapData(){
+	void generateCube(){
 		
-		//we get the map
-		//this.GetComponent<createField>().initMe();
-		/*GameObject theCreateField = new GameObject();
-		theCreateField = GameObject.Find("gameManager");
-		theCreateField.GetComponent<createField>().;*/
-		//impTheField = createField.theField;
+		//We randomly choose a  cube type. 
+		
+		
+		switch(Random.Range(1,2)){
+			case 1:
+				cubeTemplate = cubeFormTest;
+			break;
+			case 2:
+				cubeTemplate = cubeFormTest2;
+			break;
+			case 3:
+				cubeTemplate = cubeFormTest3;
+			break;
+		}
+		
+		
+		
 		
 		print("++" + createField.theField.Length);
 	}
@@ -413,6 +407,48 @@ public class gameEngine : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
+		
+		
+		
+		
+	
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	
 	}
 	
