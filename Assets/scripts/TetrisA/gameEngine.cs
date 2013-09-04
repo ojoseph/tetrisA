@@ -415,20 +415,26 @@ public class gameEngine : MonoBehaviour {
 		
 		//print("***" + Random.Range(0,(createField.theField.Length-1)/10));
 		
-		//We change row while staying within the table's index.
-		if(changeRow <= 0){
+		//If there is some space to generate a new cube we keep on doing what we are supposed to.
+		if(isThereSomeSpace == true){
 			
-			//We reset the value
-			changeRow = 10;
+		 
 			
-		}else{
- 
-			changeRow -= 1;
+			//We change row while staying within the table's index.
+			if(changeRow <= 0){
+				
+				//We reset the value
+				changeRow = 10;
+				
+			}else{
+	 
+				changeRow -= 1;
+				
+				//It calls itself again
+		 		Invoke("moveBlocks", 1); 
+			}
 			
-			//It calls itself again
-	 		Invoke("moveBlocks", 3); 
 		}
-		
 	
 	}
 	
