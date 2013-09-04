@@ -80,7 +80,7 @@ public class gameEngine : MonoBehaviour {
 	
 	
 	
-	
+	bool isThereSomeSpace = true;
 	
 	enum rowType{
 		oneRow,
@@ -92,6 +92,8 @@ public class gameEngine : MonoBehaviour {
 	
 	//Need to create a cube pool
 	
+	//Contains the number of elem
+	public int elmByRows = 10;
 	
 	
 	
@@ -159,6 +161,34 @@ public class gameEngine : MonoBehaviour {
 			}
 			
 		}	*/
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
@@ -291,8 +321,8 @@ public class gameEngine : MonoBehaviour {
 					// If the  next case is not empty we can start Generating a new cube.
 					if( createField.theField[ theRow, changeRow - nextBelow1 - nextBelow1 ] != 0){
 						
-						print ("//////////////  Its Empty //////////////" +  createField.theTileNames[ theRow, changeRow - nextBelow1 - nextBelow1 ]  + "     " +  createField.theField[ theRow, changeRow - nextBelow1 - nextBelow1 ] );
-						print ("GENERATE A NEW CUBE HERE.");
+						//print ("//////////////  Its Empty //////////////" +  createField.theTileNames[ theRow, changeRow - nextBelow1 - nextBelow1 ]  + "     " +  createField.theField[ theRow, changeRow - nextBelow1 - nextBelow1 ] );
+						//print ("GENERATE A NEW CUBE HERE.");
 						
 					}
 					
@@ -404,7 +434,41 @@ public class gameEngine : MonoBehaviour {
 	
 	
 	void generateCube(){
-		print ("<!>  LETS GENERATE A NEW CUBE");
+		
+
+		int theNumRows = (createField.theField.Length/elmByRows);  
+		//Check each Entry in the table and we print it out
+		for(int theRow = theNumRows-1 ; theRow >= 0; theRow--){
+			
+			//print("ROWS CEHCK " + theRow);
+			
+			
+			//In here we need to do 10 minus the cube row. and check if the cubes fint in. If only one spot is already taken we put a flag that returns false 
+			//We generate the cubes anyways and than we call the game over script a second later.
+			
+			for(int incre = 10; incre >= (10 - (cubeTemplate.Length/7)); incre--){
+				
+				//print("INCREEE CEHCK " + incre);	
+				print ( "<#>       " + createField.theTileNames[theRow, incre] + ":   " + createField.theField[theRow, incre].ToString() + "      <#>");
+				
+				if(createField.theField[theRow, incre]  != 0){
+					print("//////////// THERE IS SOMETHING IN THAT CASE WE CANT MOVE ANYMOOOOOOOORE  ////////////");
+					
+					isThereSomeSpace = false;
+				}
+			}
+			
+			//compile += "\n";
+		}	
+		
+		
+		
+		
+		
+		
+		
+		
+		//print ("<!>  LETS GENERATE A NEW CUBE");
 		
 		//We randomly choose a  cube type. 
 		
@@ -420,6 +484,11 @@ public class gameEngine : MonoBehaviour {
 				cubeTemplate = cubeFormTest3;
 			break;
 		}
+		
+		
+		
+		
+		
 		
 		
 		
@@ -444,7 +513,27 @@ public class gameEngine : MonoBehaviour {
 		//return cubeTemplate;
 		
 		//print("++" + createField.theField.Length);
+		
+		//If we detect that one cube cant move we show a game over screen
+		if(isThereSomeSpace == false){
+			
+			weEndTheGame();
+			
+		}
+		
 	}
+	
+	
+	
+	
+	void weEndTheGame(){
+		
+		GameObject.Find("gameOverScreen").transform.position = new Vector3(21.63251F, 9.932171F,28.31956F);
+		print ("GAME OVER  GAME OVER  GAME OVER  GAME OVER  GAME OVER  GAME OVER  GAME OVER  GAME OVER  GAME OVER  GAME OVER");
+		
+	}
+	
+	
 	
 	
 	// Update is called once per frame
