@@ -536,7 +536,8 @@ public class gameEngine : MonoBehaviour {
 		
 		GameObject.Find("gameOverScreen").transform.position = new Vector3(21.63251F, 9.932171F,28.31956F);
 		print ("GAME OVER  GAME OVER  GAME OVER  GAME OVER  GAME OVER  GAME OVER  GAME OVER  GAME OVER  GAME OVER  GAME OVER");
-		
+		gameManager.theCurrGameState = gameManager.gameState.gameOver;
+		 
 	}
 	
 	
