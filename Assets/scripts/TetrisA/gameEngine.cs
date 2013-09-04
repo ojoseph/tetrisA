@@ -248,7 +248,7 @@ public class gameEngine : MonoBehaviour {
 		
 		nbOfRowsViewd += 1;
 		
-		print ("9999999999999999999999  " + nbOfRowsViewd +"  999999999999999999999999");
+		print ("---------------------   " + nbOfRowsViewd +"   ---------------------");
 		
 		
 		
@@ -285,7 +285,7 @@ public class gameEngine : MonoBehaviour {
 		for(int theRow = 0; theRow < theNumRows; theRow++){
 			
 			//We check if we came to an end.
-			print( "<////>  " + theRow);
+			//print( "<////>  " + theRow);
 		 
 			//print( "<////>" + createField.theTileNames[ theRow, changeRow]);
 			//We populate the rows
@@ -304,7 +304,7 @@ public class gameEngine : MonoBehaviour {
 				//We make sure we dont get out of the index, when we reduce 1 or when we add 1.
 				if( changeRow - nextBelow1 <= 0 && changeRow + nextBelow1 <= 11){
 					
-					print("*****************************  LOOP DONE FOR THE WHOLE TABLE  ***************************");
+					//print("*****************************  LOOP DONE FOR THE WHOLE TABLE  ***************************");
 					//The process in here is beign called to many times.  need to be called once than exit. 
 					
 					
@@ -455,10 +455,10 @@ public class gameEngine : MonoBehaviour {
 			for(int incre = 10; incre >= (10 - (cubeTemplate.Length/7)); incre--){
 				
 				//print("INCREEE CEHCK " + incre);	
-				print ( "<#>       " + createField.theTileNames[theRow, incre] + ":   " + createField.theField[theRow, incre].ToString() + "      <#>");
+				//print ( "<#>       " + createField.theTileNames[theRow, incre] + ":   " + createField.theField[theRow, incre].ToString() + "      <#>");
 				
 				if(createField.theField[theRow, incre]  != 0){
-					print("//////////// THERE IS SOMETHING IN THAT CASE WE CANT MOVE ANYMOOOOOOOORE  ////////////");
+					print("////////////  WE CANT MOVE ANYMOOOOOOOORE  ////////////");
 					
 					isThereSomeSpace = false;
 				}
@@ -505,7 +505,7 @@ public class gameEngine : MonoBehaviour {
  
 			for(int u = 0; u <  cubeTemplate.Length/(cubeTemplate.Length/7); u++ ){
 			
-				print ("<!> check Rows: " + cubeTemplate[u , w]);
+				//print ("<!> check Rows: " + cubeTemplate[u , w]);
 				
 				//we copy the info and see what happens
 				createField.theField[ u, 10-w ] = cubeTemplate[u , w];
@@ -535,7 +535,7 @@ public class gameEngine : MonoBehaviour {
 	void weEndTheGame(){
 		
 		GameObject.Find("gameOverScreen").transform.position = new Vector3(21.63251F, 9.932171F,28.31956F);
-		print ("GAME OVER  GAME OVER  GAME OVER  GAME OVER  GAME OVER  GAME OVER  GAME OVER  GAME OVER  GAME OVER  GAME OVER");
+		//print ("GAME OVER  GAME OVER  GAME OVER  GAME OVER  GAME OVER  GAME OVER  GAME OVER  GAME OVER  GAME OVER  GAME OVER");
 		gameManager.theCurrGameState = gameManager.gameState.gameOver;
 		 
 	}
