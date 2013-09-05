@@ -53,7 +53,7 @@ public class gameEngine : MonoBehaviour {
 	public static int[,] cubeFormTest3 = new int[,]
 	{
 	    {5,2,3}, //A
-		{5,6,3}, //B
+		{5,5,3}, //B
 		{0,0,5}, //C
 		{0,0,3}, //D
 		{0,5,4}, //E
@@ -250,6 +250,14 @@ public class gameEngine : MonoBehaviour {
 		
 		print ("---------------------   " + nbOfRowsViewd +"   ---------------------");
 		
+		//Checks a row in advance. If there is a cube in that spot. If there is than we should start resolving the cubes combi
+		if(10 - (nbOfRowsViewd + 1)  >= 0){
+			
+			//We resolve the cubes combinaisons.  Now the index only starts if it finds a cube in rowA
+			//print (" <R>    We could try to resolve the issues in here   " + createField.theTileNames[ 0, 10 - (nbOfRowsViewd + 1)  ]  +  "      "  +  createField.theField[ 0, 10 - (nbOfRowsViewd + 1) ]  +  "    <R> ");
+			
+			
+		}
 		
 		
 		//We the function is done checking through all the rows. We reset this function and generate a new cube.
@@ -267,6 +275,10 @@ public class gameEngine : MonoBehaviour {
 			//We generate the visual
 			generateCube theGenerateCube = GetComponent<generateCube>();
 			theGenerateCube.generateField();
+			
+			
+			//We resolve the cubes combinaisons.
+			//print("<R>      We resolve the cube issue in here      <R>");
 			
 			//We start by calling the fct
 			//Invoke("moveBlocks", 1);
@@ -305,15 +317,7 @@ public class gameEngine : MonoBehaviour {
 				if( changeRow - nextBelow1 <= 0 && changeRow + nextBelow1 <= 11){
 					
 					//print("*****************************  LOOP DONE FOR THE WHOLE TABLE  ***************************");
-					//The process in here is beign called to many times.  need to be called once than exit. 
-					
-					
-					//generateCube();
-					 //We generate the visual
-					/*generateCube theGenerateCube = GetComponent<generateCube>();
-					theGenerateCube.generateField();
-					//We start by calling the fct
-					Invoke("moveBlocks", 1);*/
+					  
 					
 				}else{
 					
@@ -324,7 +328,14 @@ public class gameEngine : MonoBehaviour {
 						//print ("//////////////  Its Empty //////////////" +  createField.theTileNames[ theRow, changeRow - nextBelow1 - nextBelow1 ]  + "     " +  createField.theField[ theRow, changeRow - nextBelow1 - nextBelow1 ] );
 						//print ("GENERATE A NEW CUBE HERE.");
 						
+						
 					}
+					
+					
+					
+					
+					
+					
 					
 					//We check the current Item.
 					/*if(createField.theField[ theRow, changeRow ] != 0){
@@ -367,16 +378,42 @@ public class gameEngine : MonoBehaviour {
 							//print ("We activate a trap card: " + createField.theTileNames[ theRow, changeRow + nextBelow1] + "    " + createField.theField[ theRow, changeRow + nextBelow1] );
 							if(createField.theField[ theRow, changeRow ] == 0){
 								createField.theField[ theRow, changeRow ] = createField.theField[ theRow, changeRow + nextBelow1];	
-							}
+							} 
+							
+							//RESOLUTION IS CALLED HERE
+							//Here we check if we can move if not we call for the Resolution
+							if(createField.theField[ theRow, changeRow - (nextBelow1 + nextBelow1)] != 0){
+								
+								//print ("Its not empty  " +  createField.theTileNames[ theRow, changeRow - (nextBelow1 + nextBelow1)] + "    " + createField.theField[ theRow, changeRow - (nextBelow1 + nextBelow1)] ); 
+								
+								//We call the function and test it out.
+								GameObject.Find("gameManager").GetComponent<cubeResolution>().testFct();
+								
+							} 
 							
 							
 							//We recover a position where a bloc is assigned.
 							if(createField.theField[ theRow, changeRow ] != 0){
 								
-								print("-----Current: " + "   "  + createField.theTileNames[ theRow, changeRow ] + "   " + createField.theField[ theRow, changeRow ] + " Row Lenght: " + cubeTemplate.Length/7);
+								//print("-----Current: " + "   "  + createField.theTileNames[ theRow, changeRow ] + "   " + createField.theField[ theRow, changeRow ] + " Row Lenght: " + cubeTemplate.Length/7);
 								
 								createField.theField[ theRow, changeRow + nextBelow1 ] = createField.theField[ theRow, changeRow + (cubeTemplate.Length/7)-1];
 								createField.theField[ theRow, changeRow + (cubeTemplate.Length/7)-1] = 0;
+								
+								
+								
+								
+								
+								/*if( createField.theField[ theRow, changeRow - nextBelow1 - nextBelow1 ] != 0){
+						 			print("<+++++++>     START LOOPING     <+++++++>" + createField.theTileNames[ theRow, changeRow - nextBelow1] +  "   "  + createField.theField[ theRow, changeRow - nextBelow1]);
+								}*/
+								
+								
+								
+								
+								
+								
+								
 								
 							}
 							//createField.theField[ theRow, changeRow ] = 0; //= createField.theField[ theRow, (changeRow + nextBelow1 )];

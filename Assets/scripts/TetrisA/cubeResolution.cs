@@ -27,6 +27,15 @@ public class cubeResolution : MonoBehaviour {
 	}
 	
 	
+	// Use this for initialization
+	public void testFct() {
+		
+		print ("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+		
+	}
+	
+	
+	
 	public void resolve(){
 		 
 		int theNumRows = (createField.theField.Length/10); 
@@ -122,7 +131,27 @@ public class cubeResolution : MonoBehaviour {
 					//We try to recover the location,
 					if(createField.theTileNames[theRow, incre] == theCubeWeFound){
 						
-						//We got the location so we move  in the direction previously dictated an try to find cubes or empty spaces within the arrays limits.
+						//We got the location so we move  in the direction previously dictated and try to find cubes or empty spaces within the arrays limits.
+						
+					
+						int theIncreV  = indexCaseCheckVertical;
+						int theIncreH  = indexCaseCheckHorizontal;
+						while(createField.theField[theRow, incre] !=0 ){
+							
+							//We restrain the search within the table's size
+							if(theIncreV < 10 && theIncreH < 7){
+							
+									print( "<###6###>" + createField.theTileNames[theRow, incre] );
+							
+							}
+						
+						
+						
+						
+							theIncreV += indexCaseCheckVertical;
+							theIncreH += indexCaseCheckHorizontal;
+						}
+					
 					
 					
 					}
