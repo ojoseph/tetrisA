@@ -380,6 +380,8 @@ public class gameEngine : MonoBehaviour {
 								createField.theField[ theRow, changeRow ] = createField.theField[ theRow, changeRow + nextBelow1];	
 							} 
 							
+							
+							////////////////////////////////////
 							//RESOLUTION IS CALLED HERE
 							//Here we check if we can move if not we call for the Resolution
 							if(createField.theField[ theRow, changeRow - (nextBelow1 + nextBelow1)] != 0){
@@ -387,7 +389,7 @@ public class gameEngine : MonoBehaviour {
 								//print ("Its not empty  " +  createField.theTileNames[ theRow, changeRow - (nextBelow1 + nextBelow1)] + "    " + createField.theField[ theRow, changeRow - (nextBelow1 + nextBelow1)] ); 
 								
 								//We call the function and test it out.
-								GameObject.Find("gameManager").GetComponent<cubeResolution>().testFct();
+								GameObject.Find("gameManager").GetComponent<cubeResolution>().resolve();
 								
 							} 
 							

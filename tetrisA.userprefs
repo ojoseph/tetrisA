@@ -1,12 +1,7 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/TetrisA/cubeResolution.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../orthelloReversi/Assets/scripts/calculateReverse.cs">
     <Files>
-      <File FileName="Assets/scripts/TetrisA/gameEngine.cs" Line="307" Column="8" />
-      <File FileName="Assets/scripts/TetrisA/createField.cs" Line="262" Column="29" />
-      <File FileName="Assets/scripts/TetrisA/gameManager.cs" Line="78" Column="36" />
-      <File FileName="Assets/scripts/TetrisA/generateCube.cs" Line="1" Column="1" />
-      <File FileName="Assets/scripts/TetrisA/cubeResolution.cs" Line="125" Column="140" />
       <File FileName="../orthelloReversi/Assets/scripts/calculateReverse.cs" Line="1" Column="1" />
       <File FileName="../orthelloReversi/Assets/scripts/calculateTokenNumber.cs" Line="1" Column="1" />
       <File FileName="../orthelloReversi/Assets/scripts/createMap.cs" Line="1" Column="1" />

@@ -30,7 +30,7 @@ public class cubeResolution : MonoBehaviour {
 	// Use this for initialization
 	public void testFct() {
 		
-		print ("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+		//print ("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 		
 	}
 	
@@ -44,12 +44,12 @@ public class cubeResolution : MonoBehaviour {
 			//We populate the rows
 			for(int incre = 0; incre < 11 ; incre++){
 				
-				print ("<TTT>       " + createField.theTileNames[theRow, incre] + "     " + createField.theField[theRow, incre]);
+				//print ("<TTT>       " + createField.theTileNames[theRow, incre] + "     " + createField.theField[theRow, incre]);
 				
 				//If the current array contains a cube we start the loop.
 				if(createField.theField[theRow, incre] != 0){
 					
-					print ("<X> We start to look from here for similar cubes <X>");
+ 					print ("<X> We start to look from here for similar cubes " + createField.theTileNames[theRow, incre] + "    " +  createField.theField[theRow, incre]  + " <X>");
 					
 					//We call the function with the coordinates of the cube we found.
 					lookForMatches(createField.theTileNames[theRow, incre]);
@@ -84,13 +84,22 @@ public class cubeResolution : MonoBehaviour {
 		
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	//void lookForAvailable(lookDirection theWantedDirection ,int theRow, int incre, int firstTkenLocation){
 	void lookForMatches( string theCubeWeFound){
 		
 			int indexCaseCheckHorizontal = 0;
 			int indexCaseCheckVertical = 0;
 			
-		//We declare it before use
+			//We declare it before use
 			lookDirection theWantedDirection;
 		
 			theWantedDirection = lookDirection.up;
@@ -106,7 +115,7 @@ public class cubeResolution : MonoBehaviour {
 				break;
 				case lookDirection.up:
 					//int nextCaseCheck  = theField[theRow,incre + 1];
-					indexCaseCheckVertical = + 1;
+					indexCaseCheckVertical = +1;
 				break;
 				case lookDirection.down:
 					//int nextCaseCheck  = theField[theRow,incre - 1];
@@ -132,25 +141,40 @@ public class cubeResolution : MonoBehaviour {
 					if(createField.theTileNames[theRow, incre] == theCubeWeFound){
 						
 						//We got the location so we move  in the direction previously dictated and try to find cubes or empty spaces within the arrays limits.
+					
+						print( "|||||||||||||||||||||||| WE FOUND THE LOCATION |||||||||||||||||||||||   " + createField.theTileNames[theRow, incre]);
 						
 					
 						int theIncreV  = indexCaseCheckVertical;
 						int theIncreH  = indexCaseCheckHorizontal;
-						while(createField.theField[theRow, incre] !=0 ){
+						while(createField.theField[theRow + theIncreV, incre + theIncreH] != 0 ){
 							
+							print( "<###  6  ###>" + createField.theTileNames[theRow, incre] + "       "  + createField.theField[theRow, incre] );
+						
 							//We restrain the search within the table's size
-							if(theIncreV < 10 && theIncreH < 7){
+							/*if(theIncreV < 10 && theIncreH <= 3){
 							
-									print( "<###6###>" + createField.theTileNames[theRow, incre] );
+								print( "<###  6  ###>" + createField.theTileNames[theRow, incre] + "       "  + createField.theField[theRow, incre] );
 							
-							}
+							}else{
+							
+								break;
+							
+							}*/
 						
 						
-						
-						
+							
+							
 							theIncreV += indexCaseCheckVertical;
 							theIncreH += indexCaseCheckHorizontal;
-						}
+						
+						
+							print("** "+ (theRow + theIncreV) + "     " + (incre + theIncreH) + " **");
+							if((theRow + theIncreV) > 6 || (incre + theIncreH) > 6){
+									break;
+							} 
+						
+						}  
 					
 					
 					
