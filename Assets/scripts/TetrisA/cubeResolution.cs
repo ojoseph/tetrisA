@@ -13,7 +13,7 @@ public class cubeResolution : MonoBehaviour {
 	List<string> memorizeCubesSet = new List<string>();
 	
 	public	List<string> memCubeCombi = new List<string>();
-	
+	public	List<string> finalMemCubeCombi = new List<string>();
 	
 	//used to assign which direction we want to look at
 	enum lookDirection{
@@ -169,7 +169,7 @@ public class cubeResolution : MonoBehaviour {
 									//print("We got a combinaison  Next" + createField.theTileNames[theRow, incre + theIncreH] + "  " + createField.theField[theRow, incre + theIncreH] + "   Curr" + createField.theTileNames[theRow, incre] + "  " + createField.theField[theRow, incre]);
 									print("We got a combinaison  " + "   Curr" + createField.theTileNames[theRow, incre] + "  " + createField.theField[theRow, incre] + "   Next" + createField.theTileNames[theRow, incre + theIncreH] + "  " + createField.theField[theRow, incre + theIncreH]);
 									
-									
+									int nbCubeFound = 0;
 									bool existOrNot = false;
 									bool existOrNot2 = false;
 								
@@ -180,26 +180,25 @@ public class cubeResolution : MonoBehaviour {
 									}
 								
 									for(int h = 0; h <= memCubeCombi.Count-1; h++){
-									
-										
- 
+
 										print ("------  " + h + "  ------");
 										//We remove the dupllications 
 										if(memCubeCombi[h] == createField.theTileNames[theRow, incre]){
+											
+											//It already exists
 											existOrNot = true;
-											//f it already exist we remove it.
-											//memCubeCombi.Remove(createField.theTileNames[theRow, incre]);
-											//memCubeCombi.RemoveAt(h);
-											print("<REMOVE>  RemoveAt: " + memCubeCombi[h] );	
+  
+											//print("<REMOVE>  RemoveAt: " + memCubeCombi[h] );	
 										}
 									
 										if(memCubeCombi[h] == createField.theTileNames[theRow, incre + theIncreH]){
+											
+											//It already exists
 											existOrNot2 = true;
-											//f it already exist we remove it.
-											//memCubeCombi.Remove(createField.theTileNames[theRow, incre]);
-											//memCubeCombi.RemoveAt(h);
-											print("<REMOVE>  RemoveAt: " + memCubeCombi[h] );	
+ 
+											//print("<REMOVE>  RemoveAt: " + memCubeCombi[h] );	
 										}
+									
 									
 									
 									
@@ -209,7 +208,10 @@ public class cubeResolution : MonoBehaviour {
 											if(existOrNot == true){
 											
 											}else{
-												
+											
+												nbCubeFound += 1;
+											
+												//It does not exist
 												memCubeCombi.Add(createField.theTileNames[theRow, incre]);
 											 
 											}
@@ -217,7 +219,11 @@ public class cubeResolution : MonoBehaviour {
 											if(existOrNot2 == true){
 											
 											}else{
-												 
+												
+													
+												nbCubeFound += 1;
+											
+												//It does not exist 
 												memCubeCombi.Add(createField.theTileNames[theRow,  incre + theIncreH]);	
 											}
 										
