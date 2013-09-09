@@ -25,7 +25,7 @@ public class cubeResolution : MonoBehaviour {
 	
 	
 	public int cubeMemValue = 0;
-	
+	public int nbOfCubCombi = 0;
 	
 	// Use this for initialization
 	void Start () {
@@ -156,16 +156,30 @@ public class cubeResolution : MonoBehaviour {
 					
 					
 						//print("------- > " + (theRow + theIncreH));
-						if((incre + theIncreH) >=0){
+						//Prevents from getting out og the index
+						if((incre + theIncreH) >= 0){
 						
-							//print("we start checking");
+							 
+							//We check if the next position is not empty.
 							if(createField.theField[theRow, incre  + theIncreH] != 0 ){
 								//print("@@@@  " + createField.theTileNames[theRow, incre + theIncreH] + "     "+ createField.theField[theRow, incre + theIncreH]);
 							
-								//If the value of the cube is the same as the one in the memory than we add it to the colelction 
+								//If the value of the cube is the same as the one in the memory than we add it to the collection 
 								if(createField.theField[theRow, incre + theIncreH]  == cubeMemValue){
+									
+								
+									//We move one more
+									/*while( createField.theField[theRow, incre + theIncreH]  == cubeMemValue  ){
+									
+											theIncreH += indexCaseCheckHorizontal;
+									
+									}*/
+									
+									
+									
 									print("======================================================");
 									print ("");
+								
 									//print("We got a combinaison  Next" + createField.theTileNames[theRow, incre + theIncreH] + "  " + createField.theField[theRow, incre + theIncreH] + "   Curr" + createField.theTileNames[theRow, incre] + "  " + createField.theField[theRow, incre]);
 									print("We got a combinaison  " + "   Curr" + createField.theTileNames[theRow, incre] + "  " + createField.theField[theRow, incre] + "   Next" + createField.theTileNames[theRow, incre + theIncreH] + "  " + createField.theField[theRow, incre + theIncreH]);
 									
@@ -176,7 +190,8 @@ public class cubeResolution : MonoBehaviour {
 									if(memCubeCombi.Count == 0){
 										//We add the info in a temporary mem.
 										memCubeCombi.Add(createField.theTileNames[theRow, incre]);
-										memCubeCombi.Add(createField.theTileNames[theRow,  incre + theIncreH]);	
+										//memCubeCombi.Add(createField.theTileNames[theRow,  incre + theIncreH]);	
+										//memCubeCombi.Add(createField.theTileNames[theRow,  incre + (theIncreH *2)]);	
 									}
 								
 									for(int h = 0; h <= memCubeCombi.Count-1; h++){
@@ -191,6 +206,9 @@ public class cubeResolution : MonoBehaviour {
 											//print("<REMOVE>  RemoveAt: " + memCubeCombi[h] );	
 										}
 									
+									
+									
+									
 										if(memCubeCombi[h] == createField.theTileNames[theRow, incre + theIncreH]){
 											
 											//It already exists
@@ -202,6 +220,11 @@ public class cubeResolution : MonoBehaviour {
 									
 									
 									
+									
+										 
+									
+									
+									
 										if(h == memCubeCombi.Count-1){
 											print("We LOOPED THROUGH THE WHOLE Curr Array" + h);
 											
@@ -210,8 +233,13 @@ public class cubeResolution : MonoBehaviour {
 											}else{
 											
 												nbCubeFound += 1;
+												nbOfCubCombi = nbCubeFound;
 											
-												//It does not exist
+												if(nbOfCubCombi > 3){
+													print("=========**********===========");
+												}
+											
+												//It does not exist, so we add it 
 												memCubeCombi.Add(createField.theTileNames[theRow, incre]);
 											 
 											}
@@ -220,11 +248,48 @@ public class cubeResolution : MonoBehaviour {
 											
 											}else{
 												
-													
 												nbCubeFound += 1;
+												nbOfCubCombi = nbCubeFound;
 											
-												//It does not exist 
+												if(nbOfCubCombi > 3){
+													print("=========**********===========");
+												}
+											
+												
+												//It does not exist, so we add it  
 												memCubeCombi.Add(createField.theTileNames[theRow,  incre + theIncreH]);	
+											
+												//One way to check it
+												//Loop through each case. see if the value of current index is same as next index
+												//We add points for each item. If the 
+												
+												foreach( string someItem in memCubeCombi){
+													
+ 	
+													int theInnerNumRows = (createField.theField.Length/10); 
+													for(int theInnerRow = 0; theInnerRow < theInnerNumRows; theInnerRow++){
+													
+														//We populate the rows
+														for(int theInnerIncre = 0; theInnerIncre < 11; theInnerIncre++){
+															
+															//We have recovered the position
+															if(someItem == createField.theTileNames[theInnerRow, theInnerIncre]){
+																//createField.theField[theInnerRow, theInnerIncre])
+																
+																//	We print out the value of the content just to teast
+																print ( " +++THE VALUE--- " + createField.theTileNames[theInnerRow, theInnerIncre] + "   " + createField.theField[theInnerRow, theInnerIncre] +" ---THE VALUE+++ ");
+																
+															
+																
+															}
+														
+														}
+													}//End For: searching for the location
+ 
+													
+												}//End forEach
+											
+											
 											}
 										
 										}
