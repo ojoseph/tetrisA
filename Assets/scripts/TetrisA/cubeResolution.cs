@@ -1,4 +1,4 @@
-using UnityEngine;
+.833984375using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -26,7 +26,7 @@ public class cubeResolution : MonoBehaviour {
 	
 	public int cubeMemValue = 0;
 	public int nbOfCubCombi = 0;
-	
+	public int loopingPoints = 0;
 	// Use this for initialization
 	void Start () {
 		
@@ -167,15 +167,59 @@ public class cubeResolution : MonoBehaviour {
 								//If the value of the cube is the same as the one in the memory than we add it to the collection 
 								if(createField.theField[theRow, incre + theIncreH]  == cubeMemValue){
 									
-								
-									//We move one more
-									/*while( createField.theField[theRow, incre + theIncreH]  == cubeMemValue  ){
 									
+									//theIncreH -= indexCaseCheckHorizontal;
+									//print("########+++++++++  " + (theIncreH + indexCaseCheckHorizontal) );
+									print("$$%$%$%%$$&$%#$%&#$  " + (incre + theIncreH) );
+									print("EEEEEEEEEEEE  " +  incre );
+									print("vvvvvvvvvvvvvv  " + createField.theTileNames[theRow, incre]  + "   " + createField.theField[theRow, incre] );
+									print("$$%$%$%%$$&$%#$%&#$  " + (incre) );
+									print("++++++++++++++  " + createField.theTileNames[theRow, incre + theIncreH]  + "   " + createField.theField[theRow, incre + theIncreH] );
+									
+									//We check if we are within the index range
+									if((incre + theIncreH) >= 0){
+										
+										//We move one more
+										while( createField.theField[theRow, incre + theIncreH]  ==  cubeMemValue){
+											loopingPoints +=1;
+											memCubeCombi.Add(createField.theTileNames[theRow, incre + theIncreH]);
+											print ("We are looping: " + createField.theTileNames[theRow, incre + theIncreH] +  "    " + createField.theField[theRow, incre + theIncreH]  +"  memCube:" + cubeMemValue);
+											
+											//If we get out we break this
+											if((incre + theIncreH) <= 0){
+												loopingPoints +=1;
+												memCubeCombi.Add(createField.theTileNames[theRow, incre + theIncreH]);
+												print ("We are looping ZERO : " + createField.theTileNames[theRow, incre + theIncreH] +  "    " + createField.theField[theRow, incre + theIncreH]);
+												
+												print ("AccumulatedPoints: " + loopingPoints);
+												//If we find more than 3 cubes of the same set we add the last cube.
+												if(loopingPoints >= 3){
+													
+													//We copy the data in the final table
+													finalMemCubeCombi = memCubeCombi;
+												
+													//we clear the table
+													memCubeCombi.Clear();
+												}else{
+													memCubeCombi.Clear();
+												}
+												loopingPoints = 0;
+												break;
+											}
 											theIncreH += indexCaseCheckHorizontal;
+												//print ("We are looping AFTER : " + createField.theTileNames[theRow, incre + theIncreH] +  "    " + createField.theField[theRow, incre + theIncreH]);
+										}
 									
-									}*/
+									}
 									
 									
+								
+								
+								
+								
+								
+								
+								
 									
 									print("======================================================");
 									print ("");
@@ -187,6 +231,7 @@ public class cubeResolution : MonoBehaviour {
 									bool existOrNot = false;
 									bool existOrNot2 = false;
 								
+									//We check if its empty or not
 									if(memCubeCombi.Count == 0){
 										//We add the info in a temporary mem.
 										memCubeCombi.Add(createField.theTileNames[theRow, incre]);
@@ -345,7 +390,7 @@ public class cubeResolution : MonoBehaviour {
 								print("======================================================");
 							}
 						
-						}*/
+						} */
 					
 					
 						/*while( createField.theField[theRow + theIncreV, incre] != 0 && (theIncreV + theIncreV) >0 ){
@@ -357,7 +402,7 @@ public class cubeResolution : MonoBehaviour {
 								break;
 							}
 						
-						}  */
+						}   */
 					
 					
 					
@@ -374,7 +419,7 @@ public class cubeResolution : MonoBehaviour {
 							
 								break;
 							
-							} 
+							}  
 						
 						
 							
@@ -387,13 +432,13 @@ public class cubeResolution : MonoBehaviour {
 							if((theRow + theIncreV) > 6){
 								theIncreV = theIncreV-1;
 								break;
-							} 
+							}  
 							if( (incre + theIncreH) > 6){
 								theIncreH = theIncreH-1;
 								break;
-							} 
+							}  
 						
-						}  */
+						}   */
 					
 					
 					
@@ -431,3 +476,4 @@ public class cubeResolution : MonoBehaviour {
 	
 	
 }
+
