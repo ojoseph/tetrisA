@@ -57,7 +57,7 @@ public class cubeResolution : MonoBehaviour {
 					
  					//print ("<X> We start to look from here for similar cubes " + createField.theTileNames[theRow, incre] + "    " +  createField.theField[theRow, incre]  + " <X>");
 					
-					print("=>: "  +  createField.theTileNames[theRow, incre] + "    " + createField.theField[theRow, incre]);	
+					//print("=>: "  +  createField.theTileNames[theRow, incre] + "    " + createField.theField[theRow, incre]);	
 					
 					//We put the value of the cube in memory
 					cubeMemValue = createField.theField[theRow, incre];
@@ -158,38 +158,61 @@ public class cubeResolution : MonoBehaviour {
 					
 					//We try to recover the location,
 					if(createField.theTileNames[theRow, incre] == theCubeWeFound){
-					
-					
+ 						
+						print ("  ");
+						print ("  ");
+						print ("  ");
 						print ("THE CUBE FOUND: " + theCubeWeFound);
-						
-					
-						
-						for(int r = 0; r< 3; r++){
-							
-							//print("&&&" + createField.theTileNames[theRow, incre+ r] + "&&&");
-							
-						}
-						
-					
+					 
+ 						memCubeCombi.Clear();
 						int dummyIncre = 0;
+					
 						while(createField.theField[theRow, incre+ dummyIncre] != 0){
+			 				
+							//Add each value in the 
+							print ("<!> Check Dummy:" + dummyIncre + "  " +createField.theTileNames[theRow, incre + dummyIncre]);
+							memCubeCombi.Add( createField.theTileNames[theRow, incre + dummyIncre]);
+						
+							//print(" Table lenght: " + memCubeCombi.Count);	
+						
+							if(createField.theField[theRow, incre + dummyIncre] != theCubeWeFoundValue){
+								print ("<!> Not same Leave:" + dummyIncre);
+								memCubeCombi.Clear();
+								dummyIncre = 0;
+								break;
+							}
+						
+						
+							if(dummyIncre >= 2){
+								
+								print ("<!-!> OK We Copy to Final: " + dummyIncre);
+								
+								print(" Table lenght: " + memCubeCombi.Count);
+								finalMemCubeCombi = memCubeCombi;
+							
+								//We can try here to delete the unrelated cubes.
+								
+								for( int t = 0; t < memCubeCombi.Count; t++){
+								 //if(memCubeCombi[t] == createField.theTileNames
+									for(int search = 0; search < createField.theTileNames.Length; search++){	
+										//Doit loop avec les bons indexs
+										//if(memCubeCombi[t]  == createField.theTileNames[t,t]){}
+									}
+								}
 							
 							
-							print ("<#> " + createField.theTileNames[theRow, incre+ dummyIncre] + "   " + createField.theField[theRow, incre+ dummyIncre] +" <#>");
+							
+								foreach (string tempItem in memCubeCombi){
+									print ("==> " + tempItem);
+								}
+								//memCubeCombi.Clear();
+								break;
+							}
+						
+							
+							
 							dummyIncre+= indexCaseCheckHorizontal; // +1 to the left  <-
 							
-							//If we reach an empty space we break out
-							if(createField.theField[theRow, incre+ dummyIncre] == 0){
-								print ("<!> We encountered and empty space the value of Dummy is: " + dummyIncre);
-								print ("");
-								break;
-							}
-							
-							//If the cube is not the same as first cube we found.
-							if(createField.theField[theRow, incre+ dummyIncre] != theCubeWeFoundValue){
-								
-							}
-						
 						}
 					
 					
@@ -198,164 +221,8 @@ public class cubeResolution : MonoBehaviour {
 					
 					
 					
-					
-						//print("------- > " + (theRow + theIncreH));
-						//Prevents from getting out og the index
-						if((incre + theIncreH) >= 0){
-						
-							 
-						
-							//We check if the next position is not empty.
-							if(createField.theField[theRow, incre  + theIncreH] != 0 ){
-								//print("@@@@  " + createField.theTileNames[theRow, incre + theIncreH] + "     "+ createField.theField[theRow, incre + theIncreH]);
-							
-							//print("SSSSSSSSSSSSSSSSSSSS " + createField.theTileNames[theRow, incre + theIncreH]  + "   " + createField.theField[theRow, incre + theIncreH] );
-							
-								//If the value of the cube is the same as the one in the memory than we add it to the collection 
-								if(createField.theField[theRow, incre + theIncreH]  == cubeMemValue){
-									
-									
-								
-									//print("vvvvvvvvvvvvvv  " + createField.theTileNames[theRow, incre + theIncreH]  + "   " + createField.theField[theRow, incre + theIncreH] );
-									
-								
-								
-								
-									//theIncreH -= indexCaseCheckHorizontal;
-									//print("########+++++++++  " + (theIncreH + indexCaseCheckHorizontal) );
-									/*print("$$%$%$%%$$&$%#$%&#$  " + (incre + theIncreH) );
-									print("EEEEEEEEEEEE  " +  incre );
-									print("vvvvvvvvvvvvvv  " + createField.theTileNames[theRow, incre]  + "   " + createField.theField[theRow, incre] );
-									print("$$%$%$%%$$&$%#$%&#$  " + (incre) );
-									print("++++++++++++++  " + createField.theTileNames[theRow, incre + theIncreH]  + "   " + createField.theField[theRow, incre + theIncreH] );*/
-									
-									//We check if we are within the index range
-									if((incre + theIncreH) >= 0){
-										
-										//We move one more
-										while( createField.theField[theRow, incre + theIncreH]  ==  cubeMemValue){
-											loopingPoints += 1;
-											memCubeCombi.Add(createField.theTileNames[theRow, incre + theIncreH]);
-											//print ("We are looping: " + createField.theTileNames[theRow, incre + theIncreH] +  "    " + createField.theField[theRow, incre + theIncreH]  +"  memCube:" + cubeMemValue);
-											
-											//If we get out we break this
-											if((incre + theIncreH) <= 0){
-												loopingPoints +=1;
-												memCubeCombi.Add(createField.theTileNames[theRow, incre + theIncreH]);
-												//print ("We are looping ZERO : " + createField.theTileNames[theRow, incre + theIncreH] +  "    " + createField.theField[theRow, incre + theIncreH]);
-												
-												//print ("AccumulatedPoints: " + loopingPoints);
-												//If we find more than 3 cubes of the same set we add the last cube.
-												if(loopingPoints >= 3){
-													
-													//We copy the data in the final table
-													finalMemCubeCombi = memCubeCombi;
-												
-													//we clear the table
-													//memCubeCombi.Clear();
-												}else{
-													//memCubeCombi.Clear();
-												}
-												loopingPoints = 0;
-												break;
-											}
-											theIncreH += indexCaseCheckHorizontal;
-												//print ("We are looping AFTER : " + createField.theTileNames[theRow, incre + theIncreH] +  "    " + createField.theField[theRow, incre + theIncreH]);
-										}
-									
-									}
-									
-									
-								
-								
-						
-									
-									 
-								}
-						
-							}
-						
-							
-						
-						
-						
-						}
-						
-						//We got the location so we move  in the direction previously dictated and try to find cubes or empty spaces within the arrays limits.
-					
-//						print( "|||||||||||||||||||||||| WE FOUND THE LOCATION |||||||||||||||||||||||   " + createField.theTileNames[theRow, incre]);
-						
-					
-						
-						
-/*						print("----> " + theIncreV  + "   " + (theRow + theIncreV));
-						print("----> " + theIncreH  + "   " + (incre + theIncreH));
-						print ("====> " + createField.theTileNames[theRow, incre] + "  " +createField.theField[theRow, incre]);
-					
-*/						
-					
-						/*if(createField.theField[theRow + theIncreH, incre] != 0 ){
-							print("@@@@  " + createField.theTileNames[theRow + theIncreH, incre] + "     "+ createField.theField[theRow + theIncreH, incre]);
-							
-							//If the value of the cube is the same as the one in the memory than we add it to the colelction 
-							if(createField.theField[theRow + theIncreH, incre]  == cubeMemValue){
-								print("======================================================");
-								print ("");
-								print("We got a combinaison  Next" +createField.theTileNames[theRow + theIncreH, incre] + "  " + createField.theField[theRow + theIncreH, incre] + "   Curr" + createField.theField[theRow, incre] + "  " + createField.theTileNames[theRow, incre]);
-								print ("");
-								print("======================================================");
-							}
-						
-						} */
-					
-					
-						/*while( createField.theField[theRow + theIncreV, incre] != 0 && (theIncreV + theIncreV) >0 ){
-							
-							theIncreV += indexCaseCheckVertical;
-							print("@@@@  " + createField.theTileNames[theRow + theIncreV, incre] + "     "+ createField.theField[theRow + theIncreV, incre]);
-							
-							if(theRow + theIncreV < 0){
-								break;
-							}
-						
-						}   */
-					
-					
-					
-						/*while(createField.theField[theRow + (theIncreV-1), incre + theIncreH] != 0 ){
-							
-							print( "<###  6  ###>" + createField.theTileNames[theRow, incre] + "       "  + createField.theField[theRow, incre] );
-						
-							//We restrain the search within the table's size
-							 if(theIncreV < 10 && theIncreH <= 3){
-							
-								print( "<###  6  ###>" + createField.theTileNames[theRow, incre] + "       "  + createField.theField[theRow, incre] );
-							
-							}else{
-							
-								break;
-							
-							}  
-						
-						
-							
-							
-							theIncreV += indexCaseCheckVertical;
-							theIncreH += indexCaseCheckHorizontal;
-						
-						
-							print("** "+ (theRow + theIncreV) + "     " + (incre + theIncreH) + " **");
-							if((theRow + theIncreV) > 6){
-								theIncreV = theIncreV-1;
-								break;
-							}  
-							if( (incre + theIncreH) > 6){
-								theIncreH = theIncreH-1;
-								break;
-							}  
-						
-						}   */
-					
+					 
+				 
 					
 					
 					}
