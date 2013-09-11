@@ -10,7 +10,7 @@
       <File FileName="Assets/scripts/TetrisA/createField.cs" Line="1" Column="1" />
       <File FileName="Assets/scripts/TetrisA/gameManager.cs" Line="1" Column="1" />
       <File FileName="Assets/scripts/TetrisA/generateCube.cs" Line="1" Column="1" />
-      <File FileName="Assets/scripts/TetrisA/cubeResolution.cs" Line="205" Column="6" />
+      <File FileName="Assets/scripts/TetrisA/cubeResolution.cs" Line="198" Column="43" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

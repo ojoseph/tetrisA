@@ -194,10 +194,35 @@ public class cubeResolution : MonoBehaviour {
 								
 								for( int t = 0; t < memCubeCombi.Count; t++){
 								 //if(memCubeCombi[t] == createField.theTileNames
-									for(int search = 0; search < createField.theTileNames.Length; search++){	
-										//Doit loop avec les bons indexs
-										//if(memCubeCombi[t]  == createField.theTileNames[t,t]){}
-									}
+									//for(int search = 0; search < createField.theTileNames.Length; search++){
+									
+									
+									
+										//Loop until we recover the position of the current index [t]
+										int someNumRows = (createField.theField.Length/10); 
+										for(int someTheRow = 0; someTheRow < theNumRows; someTheRow++){
+											for(int someIncre = 0; someIncre < 11; someIncre++){
+												
+												//We check if the position held by the table matches the index in the loop. If so we delete the info from the main table.
+												if(memCubeCombi[t] == createField.theTileNames[someTheRow,someIncre]){
+													
+													//The data value held i the temp table has been recovered.
+													print ("<!> ==>   We delete the data at position   <== <!>" + createField.theTileNames[someTheRow,someIncre]+ "  " + createField.theField[someTheRow,someIncre]);
+											
+													//We delete the information contained in the real table
+													createField.theField[someTheRow,someIncre] = 0;
+											
+													// <note>The system automatically handles the vitual update.
+													
+												}
+										
+										
+											}
+										}
+									
+									
+									
+									//}
 								}
 							
 							
