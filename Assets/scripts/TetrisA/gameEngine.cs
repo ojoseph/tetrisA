@@ -345,12 +345,12 @@ public class gameEngine : MonoBehaviour {
 						
 					}*/
  
-					print("<! Next Below !> " +  createField.theTileNames[ theRow, changeRow - nextBelow1 ] + "   " + createField.theField[ theRow, changeRow - nextBelow1 ] );
+//					print("<! Next Below !> " +  createField.theTileNames[ theRow, changeRow - nextBelow1 ] + "   " + createField.theField[ theRow, changeRow - nextBelow1 ] );
 					
 					//If the next position is empty we move below
 					if( createField.theField[ theRow, changeRow - nextBelow1 ] == 0){
 						
-						print ("< +++ > THe next1 is empty: " +  createField.theTileNames[ theRow, changeRow - nextBelow1 ] + "   " + createField.theField[ theRow, changeRow - nextBelow1 ]  );
+//						print ("< +++ > THe next1 is empty: " +  createField.theTileNames[ theRow, changeRow - nextBelow1 ] + "   " + createField.theField[ theRow, changeRow - nextBelow1 ]  );
 						
 						//We need to check the cube that has been inputted and move it as a set.
 						
@@ -371,12 +371,12 @@ public class gameEngine : MonoBehaviour {
 						//print ("<Out Index>"   +  (changeRow-1 + nextBelow1)  + "   changer: " + changeRow + "    nextBelow: " + nextBelow1);
 						
 						
-						print ("chngR, NxtBelow*2: " + (changeRow + (nextBelow1 + nextBelow1)) );
+//						print ("chngR, NxtBelow*2: " + (changeRow + (nextBelow1 + nextBelow1)) );
 						if(changeRow + (nextBelow1 + nextBelow1) < 12){
 							
 							
 							//We delete the previous position
-							print("< ( C ) > We are about to copy previous: " + createField.theTileNames[ theRow, changeRow + nextBelow1 ] + " ==> " + createField.theTileNames[ theRow, changeRow ]);
+//							print("< ( C ) > We are about to copy previous: " + createField.theTileNames[ theRow, changeRow + nextBelow1 ] + " ==> " + createField.theTileNames[ theRow, changeRow ]);
 							createField.theField[ theRow, changeRow ] = createField.theField[ theRow, changeRow + nextBelow1 ];
 							 
 							
@@ -386,18 +386,7 @@ public class gameEngine : MonoBehaviour {
 							} 
 							
 							
-							////////////////////////////////////
-							//RESOLUTION IS CALLED HERE
-							//Here we check if we can move if not we call for the Resolution
-							//if(createField.theField[ theRow, changeRow - (nextBelow1 + nextBelow1)] != 0){
-							if(createField.theField[ theRow, (changeRow - nextBelow1)] != 0){
-								
-								//print ("Its not empty  " +  createField.theTileNames[ theRow, changeRow - (nextBelow1 + nextBelow1)] + "    " + createField.theField[ theRow, changeRow - (nextBelow1 + nextBelow1)] ); 
-								
-								//We call the function and test it out.
-								GameObject.Find("gameManager").GetComponent<cubeResolution>().resolve();
-								
-							} 
+							
 							
 							
 							//We recover a position where a bloc is assigned.
@@ -407,24 +396,34 @@ public class gameEngine : MonoBehaviour {
 								
 								createField.theField[ theRow, changeRow + nextBelow1 ] = createField.theField[ theRow, changeRow + (cubeTemplate.Length/7)-1];
 								createField.theField[ theRow, changeRow + (cubeTemplate.Length/7)-1] = 0;
-								
-								
-								
-								
-								
+ 
 								/*if( createField.theField[ theRow, changeRow - nextBelow1 - nextBelow1 ] != 0){
 						 			print("<+++++++>     START LOOPING     <+++++++>" + createField.theTileNames[ theRow, changeRow - nextBelow1] +  "   "  + createField.theField[ theRow, changeRow - nextBelow1]);
 								}*/
-								
-								
-								
-								
-								
-								
-								
-								
+ 
 							}
 							//createField.theField[ theRow, changeRow ] = 0; //= createField.theField[ theRow, (changeRow + nextBelow1 )];
+							
+							
+							
+							////////////////////////////////////
+							//RESOLUTION IS CALLED HERE
+							//Here we check if we can move if not we call for the Resolution
+							//if(createField.theField[ theRow, changeRow - (nextBelow1 + nextBelow1)] != 0){
+							if(createField.theField[ theRow, (changeRow - nextBelow1)] != 0){
+								
+								//print ("Its not empty  " +  createField.theTileNames[ theRow, changeRow - (nextBelow1 + nextBelow1)] + "    " + createField.theField[ theRow, changeRow - (nextBelow1 + nextBelow1)] ); 
+//								print ("Its not empty  " +  createField.theTileNames[ theRow, changeRow - (nextBelow1)] + "    " + createField.theField[ theRow, changeRow - (nextBelow1)] ); 
+//								print ("< -M- > We call for the Resolution "  );
+								//We call the function and test it out.
+								GameObject.Find("gameManager").GetComponent<cubeResolution>().resolve();
+								
+							} 
+							
+							
+							
+							
+							
 							
 						}else{
 							

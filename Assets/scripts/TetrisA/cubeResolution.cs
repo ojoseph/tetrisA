@@ -172,6 +172,9 @@ public class cubeResolution : MonoBehaviour {
 							//Add each value in the 
 //							print ("<!> Check Dummy:" + dummyIncre + "  " +createField.theTileNames[theRow, incre + dummyIncre]);
 							memCubeCombi.Add( createField.theTileNames[theRow, incre + dummyIncre]);
+//							print("We are adding:" + createField.theTileNames[theRow, incre + dummyIncre] + "    "  + createField.theField[theRow, incre + dummyIncre] );
+						
+						
 						
 							//print(" Table lenght: " + memCubeCombi.Count);	
 						
@@ -184,8 +187,8 @@ public class cubeResolution : MonoBehaviour {
 						
 						
 							if(dummyIncre >= 2){
-								
-//								print ("<!-!> OK We Copy to Final: " + dummyIncre);
+	 
+								print ("<!-!> OK We Copy to Final: " + dummyIncre + "Started with: " + theCubeWeFound + ":  " + theCubeWeFoundValue);
 //								
 //								print(" Table lenght: " + memCubeCombi.Count);
 								finalMemCubeCombi = memCubeCombi;
