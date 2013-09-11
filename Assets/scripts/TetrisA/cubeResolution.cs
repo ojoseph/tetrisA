@@ -83,7 +83,7 @@ public class cubeResolution : MonoBehaviour {
 					
 					
 				}else{
-					print("<!!!  We bumbped into a empty spot   !!!>");
+//					print("<!!!  We bumbped into a empty spot   !!!>");
 					//We break upon empty space
 					break;
 				}
@@ -159,10 +159,10 @@ public class cubeResolution : MonoBehaviour {
 					//We try to recover the location,
 					if(createField.theTileNames[theRow, incre] == theCubeWeFound){
  						
-						print ("  ");
-						print ("  ");
-						print ("  ");
-						print ("THE CUBE FOUND: " + theCubeWeFound);
+//						print ("  ");
+//						print ("  ");
+//						print ("  ");
+//						print ("THE CUBE FOUND: " + theCubeWeFound);
 					 
  						memCubeCombi.Clear();
 						int dummyIncre = 0;
@@ -170,13 +170,13 @@ public class cubeResolution : MonoBehaviour {
 						while(createField.theField[theRow, incre+ dummyIncre] != 0){
 			 				
 							//Add each value in the 
-							print ("<!> Check Dummy:" + dummyIncre + "  " +createField.theTileNames[theRow, incre + dummyIncre]);
+//							print ("<!> Check Dummy:" + dummyIncre + "  " +createField.theTileNames[theRow, incre + dummyIncre]);
 							memCubeCombi.Add( createField.theTileNames[theRow, incre + dummyIncre]);
 						
 							//print(" Table lenght: " + memCubeCombi.Count);	
 						
 							if(createField.theField[theRow, incre + dummyIncre] != theCubeWeFoundValue){
-								print ("<!> Not same Leave:" + dummyIncre);
+//								print ("<!> Not same Leave:" + dummyIncre);
 								memCubeCombi.Clear();
 								dummyIncre = 0;
 								break;
@@ -185,9 +185,9 @@ public class cubeResolution : MonoBehaviour {
 						
 							if(dummyIncre >= 2){
 								
-								print ("<!-!> OK We Copy to Final: " + dummyIncre);
-								
-								print(" Table lenght: " + memCubeCombi.Count);
+//								print ("<!-!> OK We Copy to Final: " + dummyIncre);
+//								
+//								print(" Table lenght: " + memCubeCombi.Count);
 								finalMemCubeCombi = memCubeCombi;
 							
 								//We can try here to delete the unrelated cubes.
@@ -207,7 +207,7 @@ public class cubeResolution : MonoBehaviour {
 												if(memCubeCombi[t] == createField.theTileNames[someTheRow,someIncre]){
 													
 													//The data value held i the temp table has been recovered.
-													print ("<!> ==>   We delete the data at position   <== <!>" + createField.theTileNames[someTheRow,someIncre]+ "  " + createField.theField[someTheRow,someIncre]);
+//													print ("<!> ==>   We delete the data at position   <== <!>" + createField.theTileNames[someTheRow,someIncre]+ "  " + createField.theField[someTheRow,someIncre]);
 											
 													//We delete the information contained in the real table
 													createField.theField[someTheRow,someIncre] = 0;
