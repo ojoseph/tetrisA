@@ -159,89 +159,187 @@ public class cubeResolution : MonoBehaviour {
 					//We try to recover the location,
 					if(createField.theTileNames[theRow, incre] == theCubeWeFound){
  						
-//						print ("  ");
-//						print ("  ");
-//						print ("  ");
-//						print ("THE CUBE FOUND: " + theCubeWeFound);
+						print ("  ");
+						print ("  ");
+						print ("  ");
+						print ("THE CUBE FOUND: " + theCubeWeFound);
 					 
- 						memCubeCombi.Clear();
-						int dummyIncre = 0;
 					
-						while(createField.theField[theRow, incre+ dummyIncre] != 0){
+					
+						
+					
+					
+					
+ 						memCubeCombi.Clear();
+						//int dummyIncre = 0;
+						int matchCounter= 0;
+					
+						//while( createField.theField[theRow, incre+ dummyIncre] != 0 ){
+						for(int dummyIncre = 0; dummyIncre < 11; dummyIncre ++ ){
 			 				
+//							print("|||==========|||  " + createField.theTileNames[theRow, incre+ dummyIncre] + "       " + createField.theField[theRow, incre+ dummyIncre]);
+							
+						
+							/*if( createField.theField[theRow, incre + dummyIncre] == 0){
+								print ("<Q> LOG OUT <Q>");
+								break;
+							} */
+						
 							//Add each value in the 
 //							print ("<!> Check Dummy:" + dummyIncre + "  " +createField.theTileNames[theRow, incre + dummyIncre]);
-							memCubeCombi.Add( createField.theTileNames[theRow, incre + dummyIncre]);
+							//memCubeCombi.Add( createField.theTileNames[theRow, incre + dummyIncre]);
 //							print("We are adding:" + createField.theTileNames[theRow, incre + dummyIncre] + "    "  + createField.theField[theRow, incre + dummyIncre] );
-						
+							
+							 
 						
 						
 							//print(" Table lenght: " + memCubeCombi.Count);	
 						
 							if(createField.theField[theRow, incre + dummyIncre] != theCubeWeFoundValue){
-//								print ("<!> Not same Leave:" + dummyIncre);
-								memCubeCombi.Clear();
-								dummyIncre = 0;
-								break;
-							}
-						
-						
-							if(dummyIncre >= 2){
-	 
-								print ("<!-!> OK We Copy to Final: " + dummyIncre + "Started with: " + theCubeWeFound + ":  " + theCubeWeFoundValue);
-//								
-//								print(" Table lenght: " + memCubeCombi.Count);
-								finalMemCubeCombi = memCubeCombi;
-							
-								//We can try here to delete the unrelated cubes.
+ 								print ("<!> Not same Leave:" + dummyIncre);
 								
-								for( int t = 0; t < memCubeCombi.Count; t++){
-								 //if(memCubeCombi[t] == createField.theTileNames
-									//for(int search = 0; search < createField.theTileNames.Length; search++){
-									
-									
-									
-										//Loop until we recover the position of the current index [t]
-										int someNumRows = (createField.theField.Length/10); 
-										for(int someTheRow = 0; someTheRow < theNumRows; someTheRow++){
-											for(int someIncre = 0; someIncre < 11; someIncre++){
-												
-												//We check if the position held by the table matches the index in the loop. If so we delete the info from the main table.
-												if(memCubeCombi[t] == createField.theTileNames[someTheRow,someIncre]){
-													
-													//The data value held i the temp table has been recovered.
-//													print ("<!> ==>   We delete the data at position   <== <!>" + createField.theTileNames[someTheRow,someIncre]+ "  " + createField.theField[someTheRow,someIncre]);
-											
-													//We delete the information contained in the real table
-													createField.theField[someTheRow,someIncre] = 0;
-											
-													// <note>The system automatically handles the vitual update.
-													
-												}
-										
-										
-											}
-										}
-									
-									
-									
-									//}
-								}
-							
-							
-							
+								//We check which cubes are getting deleted.
 								foreach (string tempItem in memCubeCombi){
-									print ("==> " + tempItem);
+									print ("---- > " + tempItem);
 								}
-								//memCubeCombi.Clear();
+								
+								//------------------------------------------------------------------------------------
+							
+							
+								print ("<P> We are now starting the deleting process:  " +matchCounter );
+								if( /* dummyIncre >= 3 */   matchCounter >=3  ){
+		 
+	//								print ("<!-!> OK We Copy to Final: " + dummyIncre + "Started with: " + theCubeWeFound + ":  " + theCubeWeFoundValue);
+	//								
+	//								print(" Table lenght: " + memCubeCombi.Count);
+									finalMemCubeCombi = memCubeCombi;
+								
+									//We can try here to delete the unrelated cubes.
+									
+									for( int t = 0; t < memCubeCombi.Count; t++){
+									 //if(memCubeCombi[t] == createField.theTileNames
+										//for(int search = 0; search < createField.theTileNames.Length; search++){
+										
+										
+										
+											//Loop until we recover the position of the current index [t]
+											int someNumRows = (createField.theField.Length/10); 
+											for(int someTheRow = 0; someTheRow < theNumRows; someTheRow++){
+												for(int someIncre = 0; someIncre < 11; someIncre++){
+													
+													//We check if the position held by the table matches the index in the loop. If so we delete the info from the main table.
+													if(memCubeCombi[t] == createField.theTileNames[someTheRow,someIncre]){
+														
+														//The data value held i the temp table has been recovered.
+	//													print ("<!> ==>   We delete the data at position   <== <!>" + createField.theTileNames[someTheRow,someIncre]+ "  " + createField.theField[someTheRow,someIncre]);
+												
+														//We delete the information contained in the real table
+														createField.theField[someTheRow,someIncre] = 0;
+												
+														// <note>The system automatically handles the vitual update.
+														
+													}//End If
+											
+											
+												}//End for
+											}//EndFor
+							 
+									}//End For
+								
+								
+									//Small For each that check the output
+									foreach (string tempItem in memCubeCombi){
+										print ("==> " + tempItem);
+									}
+									//memCubeCombi.Clear();
+									break;
+								}
+							
+							
+								//------------------------------------------------------------------------------------
+							
+							
+								memCubeCombi.Clear();
+								//dummyIncre = 0;
 								break;
+							}else{
+								memCubeCombi.Add( createField.theTileNames[theRow, incre + dummyIncre]);
+								matchCounter +=1;
 							}
+							
+							
+							
+							 
 						
 							
+							//dummyIncre+= indexCaseCheckHorizontal; // +1 to the left  <-
 							
-							dummyIncre+= indexCaseCheckHorizontal; // +1 to the left  <-
+								
+//							print ("<CHECK> value of dummy " + dummyIncre + "  " + createField.theTileNames[theRow, incre + dummyIncre] + "  " + createField.theField[theRow, incre + dummyIncre] );
+						
+							if(createField.theField[theRow, incre + dummyIncre] == 0){
+							
+//								print (" <&&&&> OMG!!!!!!  " + createField.theTileNames[theRow, incre + dummyIncre]);
+//							
+							}
 							
 						}
+					
+					
+					
+						print(" < VVVVVVVVVVVVV > Process should be done in here    < VVVVVVVVVVVVV >");
+					
+						//*****************************************
+					
+					
+					
+					
+					
+						
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+						//*****************************************
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
 					
 					
 					
