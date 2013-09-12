@@ -65,7 +65,7 @@ public class gameEngine : MonoBehaviour {
 	
 	
 	
-	public static int[,] cubeTemplate = new int[,]
+	/*public static int[,] cubeTemplate = new int[,]
 	{
 	    {1}, //A
 		{1}, //B
@@ -74,6 +74,18 @@ public class gameEngine : MonoBehaviour {
 		{1}, //E
 		{1}, //F
 		{1}, //G
+	};*/
+	
+	
+	public static int[,] cubeTemplate = new int[,]
+	{
+	    {1,1}, //A
+		{1,1}, //B
+		{1,1}, //C
+		{1,1}, //D
+		{1,1}, //E
+		{1,1}, //F
+		{1,1}, //G
 	};
 	
 	

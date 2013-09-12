@@ -1,15 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/TetrisA/cubeResolution.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/TetrisA/gameEngine.cs">
     <Files>
       <File FileName="../orthelloReversi/Assets/scripts/calculateReverse.cs" Line="1" Column="1" />
       <File FileName="../orthelloReversi/Assets/scripts/calculateTokenNumber.cs" Line="1" Column="1" />
       <File FileName="../orthelloReversi/Assets/scripts/gameplay.cs" Line="226" Column="6" />
-      <File FileName="Assets/scripts/TetrisA/gameEngine.cs" Line="347" Column="2" />
+      <File FileName="Assets/scripts/TetrisA/gameEngine.cs" Line="408" Column="8" />
       <File FileName="Assets/scripts/TetrisA/createField.cs" Line="1" Column="1" />
       <File FileName="Assets/scripts/TetrisA/gameManager.cs" Line="1" Column="1" />
       <File FileName="Assets/scripts/TetrisA/generateCube.cs" Line="1" Column="1" />
-      <File FileName="Assets/scripts/TetrisA/cubeResolution.cs" Line="175" Column="149" />
+      <File FileName="Assets/scripts/TetrisA/cubeResolution.cs" Line="191" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
