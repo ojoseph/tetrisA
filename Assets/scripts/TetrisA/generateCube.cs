@@ -7,8 +7,9 @@ public class generateCube : MonoBehaviour {
 	
 	//GameObbject for the tiles
 	GameObject aCube;
+	GameObject btnCube;
 	
-	
+	bool generateBtn = false;
  
 	public GameObject[] gameObjects;
 	
@@ -49,13 +50,44 @@ public class generateCube : MonoBehaviour {
 		//We set the rows
 		for(int theRow = 0 ; theRow < theNumRows; theRow++){
 			
+			print ("< R > Done with a row, so We Roll, we Roll  Row: " + theRow);
+				generateBtn = false;
+			
 			//We populate the rows
 			for(int incre = 0; incre < 11; incre++){
 				
-				//print ("8:   "  +  createField.theTileNames[theRow,incre] + "    " + createField.theField[theRow,incre]);
+				if(createField.theField[theRow,incre] == 0){
+					generateBtn = true;
+				}
+				
+				
+				
 				
 				if(createField.theField[theRow,incre] != 0){
 				 
+					
+					print ("< T > Create Button? : " + incre);
+				
+					print ("< F > : " + createField.theTileNames[theRow,incre]);
+					
+					//print ("8:   "  +  createField.theTileNames[theRow,incre] + "    " + createField.theField[theRow,incre]);
+				
+					if(generateBtn == false ){
+					if( theRow == 6 /* &&  incre == 1 */){
+							
+						print("We add a box in here");
+						GameObject targetBtnDownLoc = new GameObject();
+						targetBtnDownLoc = GameObject.Find(createField.theTileNames[theRow,incre]);
+					
+						btnCube = Instantiate( Resources.Load("blocks/upDown"),  new Vector3(targetBtnDownLoc.transform.position.x, 0, targetBtnDownLoc.transform.position.z), transform.localRotation) as GameObject;
+						btnCube.name = "rowDownBtn_" + createField.theTileNames[ theRow,incre ];
+						btnCube.tag = "rowDownBtn";
+					}
+					}
+					
+					
+					
+					
 					/*==================*/
 					/* ==== Cube Types ====*/
 					
@@ -145,6 +177,10 @@ public class generateCube : MonoBehaviour {
 				}
 				
 			}
+			
+			
+			
+			
 			
 		}//End Generating 
 		
