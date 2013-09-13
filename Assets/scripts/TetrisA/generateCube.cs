@@ -15,7 +15,7 @@ public class generateCube : MonoBehaviour {
 	
 	
 	// A. 2D array of strings.Where we store the names
-	public static string[] theTagsList = new string[] {"pinkHeart", "greenSquare", "blueStar", "yellowTriangle", "purpleSpade","rowDownBtn" };
+	public static string[] theTagsList = new string[] {"pinkHeart", "greenSquare", "blueStar", "yellowTriangle", "purpleSpade","rowDownBtn","rowUpBtn" };
 	
 	
 	// Use this for initialization
@@ -88,6 +88,19 @@ public class generateCube : MonoBehaviour {
 							btnCube.name = "rowDownBtn_" + createField.theTileNames[ theRow,incre ];
 							btnCube.tag = "rowDownBtn";
 						}
+						
+						
+						if( theRow == 0/* &&  incre == 1 */){
+								
+							print("We add a box in here");
+							GameObject targetBtnDownLoc = new GameObject();
+							targetBtnDownLoc = GameObject.Find(createField.theTileNames[theRow,incre]);
+						
+							btnCube = Instantiate( Resources.Load("blocks/upDown"),  new Vector3(targetBtnDownLoc.transform.position.x, 0, targetBtnDownLoc.transform.position.z), transform.localRotation) as GameObject;
+							btnCube.name = "rowUpBtn" + createField.theTileNames[ theRow,incre ];
+							btnCube.tag = "rowUpBtn";
+						}
+						
 					}
 					
 					
