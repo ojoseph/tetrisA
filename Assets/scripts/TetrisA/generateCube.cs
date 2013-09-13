@@ -15,7 +15,7 @@ public class generateCube : MonoBehaviour {
 	
 	
 	// A. 2D array of strings.Where we store the names
-	public static string[] theTagsList = new string[] {"pinkHeart", "greenSquare", "blueStar", "yellowTriangle", "purpleSpade" };
+	public static string[] theTagsList = new string[] {"pinkHeart", "greenSquare", "blueStar", "yellowTriangle", "purpleSpade","rowDownBtn" };
 	
 	
 	// Use this for initialization
