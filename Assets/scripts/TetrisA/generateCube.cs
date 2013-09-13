@@ -51,11 +51,15 @@ public class generateCube : MonoBehaviour {
 		for(int theRow = 0 ; theRow < theNumRows; theRow++){
 			
 			print ("< R > Done with a row, so We Roll, we Roll  Row: " + theRow);
+			
+				//We start a new row therfore we havent encounter any empty space
 				generateBtn = false;
 			
 			//We populate the rows
 			for(int incre = 0; incre < 11; incre++){
 				
+				
+				//We have encountered an empty space, we let the box know that it has to stop generating btns
 				if(createField.theField[theRow,incre] == 0){
 					generateBtn = true;
 				}
@@ -71,18 +75,19 @@ public class generateCube : MonoBehaviour {
 					print ("< F > : " + createField.theTileNames[theRow,incre]);
 					
 					//print ("8:   "  +  createField.theTileNames[theRow,incre] + "    " + createField.theField[theRow,incre]);
-				
-					if(generateBtn == false ){
-					if( theRow == 6 /* &&  incre == 1 */){
-							
-						print("We add a box in here");
-						GameObject targetBtnDownLoc = new GameObject();
-						targetBtnDownLoc = GameObject.Find(createField.theTileNames[theRow,incre]);
 					
-						btnCube = Instantiate( Resources.Load("blocks/upDown"),  new Vector3(targetBtnDownLoc.transform.position.x, 0, targetBtnDownLoc.transform.position.z), transform.localRotation) as GameObject;
-						btnCube.name = "rowDownBtn_" + createField.theTileNames[ theRow,incre ];
-						btnCube.tag = "rowDownBtn";
-					}
+					//We check we can generate new tokens or not. 
+					if(generateBtn == false ){
+						if( theRow == 6 /* &&  incre == 1 */){
+								
+							print("We add a box in here");
+							GameObject targetBtnDownLoc = new GameObject();
+							targetBtnDownLoc = GameObject.Find(createField.theTileNames[theRow,incre]);
+						
+							btnCube = Instantiate( Resources.Load("blocks/upDown"),  new Vector3(targetBtnDownLoc.transform.position.x, 0, targetBtnDownLoc.transform.position.z), transform.localRotation) as GameObject;
+							btnCube.name = "rowDownBtn_" + createField.theTileNames[ theRow,incre ];
+							btnCube.tag = "rowDownBtn";
+						}
 					}
 					
 					
