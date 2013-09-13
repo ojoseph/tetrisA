@@ -9,8 +9,13 @@ public class generateCube : MonoBehaviour {
 	GameObject aCube;
 	GameObject btnCube;
 	
+	
+	//Checks if we can generate the cube
 	bool generateBtn = false;
- 
+ 	
+	//Checks if there  is any cube in the row
+	bool anycubeInRow = false;
+	
 	public GameObject[] gameObjects;
 	
 	
@@ -70,7 +75,7 @@ public class generateCube : MonoBehaviour {
 				if(createField.theField[theRow,incre] != 0){
 				 
 					
-					print ("< T > Create Button? : " + incre);
+					///print ("< T > Create Button? : " + incre);
 				
 					print ("< F > : " + createField.theTileNames[theRow,incre]);
 					
