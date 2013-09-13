@@ -20,7 +20,7 @@ public class generateCube : MonoBehaviour {
 	
 	
 	// A. 2D array of strings.Where we store the names
-	public static string[] theTagsList = new string[] {"pinkHeart", "greenSquare", "blueStar", "yellowTriangle", "purpleSpade","rowDownBtn","rowUpBtn" };
+	public static string[] theTagsList = new string[] { "pinkHeart", "greenSquare", "blueStar", "yellowTriangle", "purpleSpade","rowDownBtn","rowUpBtn" };
 	
 	
 	// Use this for initialization
@@ -46,6 +46,90 @@ public class generateCube : MonoBehaviour {
 
 	public void generateField(){
 		
+		//Before we check if the is any value in a row //For the button generation
+		/*int theSomeNumRows = (createField.theField.Length/10);
+		for(int someTheRow = 0 ; someTheRow < theSomeNumRows; someTheRow++){
+			
+			anycubeInRow = false; 
+			
+			for(int otherTncre = 0; otherTncre < 7; otherTncre++){
+			
+				print ("< E > : " + createField.theTileNames[otherTncre,someTheRow] + "   " + createField.theField[otherTncre,someTheRow] );
+				
+				if( createField.theField[otherTncre,someTheRow] != 0){
+					//print("WOOOOT a cube Is NotT empTy in thIs RoW?!");
+					anycubeInRow = true;
+			 
+				}
+				
+				
+				
+			}
+			
+			
+			
+			
+			
+			
+			int DtheNumRows = (createField.theField.Length/10);  
+			for(int DtheRow = 0 ; DtheRow < DtheNumRows; DtheRow++){
+				for(int Dincre = 0; Dincre < 11; Dincre++){
+					
+					
+					
+					
+					
+					
+					if(anycubeInRow == true){
+						if( DtheRow == 6 ){
+								
+							print("We add a box in here");
+							GameObject targetBtnDownLoc = new GameObject();
+							targetBtnDownLoc = GameObject.Find(createField.theTileNames[DtheRow,Dincre]);
+						
+							btnCube = Instantiate( Resources.Load("blocks/upDown"),  new Vector3(targetBtnDownLoc.transform.position.x, 0, targetBtnDownLoc.transform.position.z), transform.localRotation) as GameObject;
+							btnCube.name = "rowDownBtn_" + createField.theTileNames[ DtheRow,Dincre ];
+							btnCube.tag = "rowDownBtn";
+						}
+						
+						
+						if( DtheRow == 0 ){
+								
+							print("We add a box in here");
+							GameObject targetBtnDownLoc = new GameObject();
+							targetBtnDownLoc = GameObject.Find(createField.theTileNames[DtheRow,Dincre]);
+						
+							btnCube = Instantiate( Resources.Load("blocks/upDown"),  new Vector3(targetBtnDownLoc.transform.position.x, 0, targetBtnDownLoc.transform.position.z), transform.localRotation) as GameObject;
+							btnCube.name = "rowUpBtn" + createField.theTileNames[ DtheRow,Dincre ];
+							btnCube.tag = "rowUpBtn";
+						}
+					}
+ 
+							
+				}
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		}*/
+		
+		
+		
 		
 //		print ("2222222222222222222222222");
 		
@@ -57,12 +141,18 @@ public class generateCube : MonoBehaviour {
 			
 			print ("< R > Done with a row, so We Roll, we Roll  Row: " + theRow);
 			
-				//We start a new row therfore we havent encounter any empty space
-				generateBtn = false;
+			//We start a new row therfore we havent encounter any empty space
+			generateBtn = false;
+				
+			//We reset and check again if anything has been found.	
+			anycubeInRow = false;
+		 
 			
 			//We populate the rows
 			for(int incre = 0; incre < 11; incre++){
-				
+					
+				//print ("< E > : " + createField.theTileNames[theRow,incre] + "    " + createField.theField[theRow,incre]);
+			 
 				
 				//We have encountered an empty space, we let the box know that it has to stop generating btns
 				if(createField.theField[theRow,incre] == 0){
@@ -77,13 +167,13 @@ public class generateCube : MonoBehaviour {
 					
 					///print ("< T > Create Button? : " + incre);
 				
-					print ("< F > : " + createField.theTileNames[theRow,incre]);
+//					print ("< F > : " + createField.theTileNames[theRow,incre]);
 					
 					//print ("8:   "  +  createField.theTileNames[theRow,incre] + "    " + createField.theField[theRow,incre]);
 					
 					//We check we can generate new tokens or not. 
 					if(generateBtn == false ){
-						if( theRow == 6 /* &&  incre == 1 */){
+						if( theRow == 6  ){
 								
 							print("We add a box in here");
 							GameObject targetBtnDownLoc = new GameObject();
@@ -95,7 +185,7 @@ public class generateCube : MonoBehaviour {
 						}
 						
 						
-						if( theRow == 0/* &&  incre == 1 */){
+						if( theRow == 0 ){
 								
 							print("We add a box in here");
 							GameObject targetBtnDownLoc = new GameObject();
