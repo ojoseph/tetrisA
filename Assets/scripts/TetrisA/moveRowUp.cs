@@ -8,6 +8,10 @@ public string cubeInMemoName;
 public int cubeInMemoVal;
 public int zaRowNumber;
 	
+	
+//GameObj that serves to acces the GameManager
+GameObject connectToGameManager;	
+	
 	void OnMouseDown(){
 		print("GOOD LORD YOU HAVE CLICKED ME");
 		
@@ -60,6 +64,10 @@ public int zaRowNumber;
 							//Once the movement done we should refresh the scen as right now it is called only on each cube movemet
 							// <!> Please refresh the scene!
 							
+							//We Refresh the visuals
+							connectToGameManager = GameObject.Find("gameManager");
+							connectToGameManager.GetComponent<generateCube>().deleteAllCubes();
+							connectToGameManager.GetComponent<generateCube>().generateField();
 							
 						}
 					}
