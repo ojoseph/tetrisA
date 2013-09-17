@@ -287,7 +287,7 @@ public class cubeResolution : MonoBehaviour {
 					
 					
 					
-						print(" < VVVVVVVVVVVVV > Process should be done in here    < VVVVVVVVVVVVV >");
+//						print(" < VVVVVVVVVVVVV > Process should be done in here    < VVVVVVVVVVVVV >");
 					
 						//*****************************************
 					

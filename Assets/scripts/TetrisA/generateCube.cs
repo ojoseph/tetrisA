@@ -57,16 +57,16 @@ public class generateCube : MonoBehaviour {
 			
 			anycubeInRow = false; 
 			
-			print("======================================");
+//			print("======================================");
 			
 			for(int otherTncre = 0; otherTncre < 7; otherTncre++){
 			
-				print ("< E > : " + createField.theTileNames[otherTncre,someTheRow] + "   " + createField.theField[otherTncre,someTheRow] );
+//				print ("< E > : " + createField.theTileNames[otherTncre,someTheRow] + "   " + createField.theField[otherTncre,someTheRow] );
 				
 				if( createField.theField[otherTncre,someTheRow] != 0){
 					//print("WOOOOT a cube Is NotT empTy in thIs RoW?!");
 					anycubeInRow = true;
-			 		print ("< E > : " + createField.theTileNames[otherTncre,someTheRow] + "   " + createField.theField[otherTncre,someTheRow] );
+//			 		print ("< E > : " + createField.theTileNames[otherTncre,someTheRow] + "   " + createField.theField[otherTncre,someTheRow] );
 				}
 				
 				
@@ -75,7 +75,7 @@ public class generateCube : MonoBehaviour {
 			
 			
 			
-			print("===================  END " + anycubeInRow + "  ===================");
+//			print("===================  END " + anycubeInRow + "  ===================");
 			
 			//If there is no cubes available we end up this madness.
 			if(anycubeInRow == false){
@@ -94,10 +94,12 @@ public class generateCube : MonoBehaviour {
 				targetBtnDownLoc = GameObject.Find(createField.theTileNames[0,someTheRow]);
 			
 				btnCube = Instantiate( Resources.Load("blocks/upDown"),  new Vector3(targetBtnDownLoc.transform.position.x, 0, targetBtnDownLoc.transform.position.z), transform.localRotation) as GameObject;
-				btnCube.name = "rowDownBtn_" + createField.theTileNames[0,someTheRow ];
-				btnCube.tag = "rowDownBtn";
+				btnCube.name = "rowUpBtn" + createField.theTileNames[0,someTheRow ];
+				btnCube.tag = "rowUpBtn";
+				btnCube.AddComponent("moveRowUp");
 				
-				
+			
+			
 				print("We add a box in here");
 				//GameObject targetBtnDownLoc = new GameObject();
 				targetBtnDownLoc = GameObject.Find(createField.theTileNames[6,someTheRow]);
@@ -110,44 +112,7 @@ public class generateCube : MonoBehaviour {
 			//}
 			////////////////
 			
-			
-			int DtheNumRows = (createField.theField.Length/10);  
-			for(int DtheRow = 0 ; DtheRow < DtheNumRows; DtheRow++){
-				for(int Dincre = 0; Dincre < 11; Dincre++){
-					
-					
-					
-					
-					
-					
-					if(anycubeInRow == true){
-						if( DtheRow == 6 ){
-								
-							/*print("We add a box in here");
-							GameObject targetBtnDownLoc = new GameObject();
-							targetBtnDownLoc = GameObject.Find(createField.theTileNames[DtheRow,Dincre]);
-						
-							btnCube = Instantiate( Resources.Load("blocks/upDown"),  new Vector3(targetBtnDownLoc.transform.position.x, 0, targetBtnDownLoc.transform.position.z), transform.localRotation) as GameObject;
-							btnCube.name = "rowDownBtn_" + createField.theTileNames[ DtheRow,Dincre ];
-							btnCube.tag = "rowDownBtn";*/
-						}
-						
-						
-						if( DtheRow == 0 ){
-								
-						/*	print("We add a box in here");
-							GameObject targetBtnDownLoc = new GameObject();
-							targetBtnDownLoc = GameObject.Find(createField.theTileNames[DtheRow,Dincre]);
-						
-							btnCube = Instantiate( Resources.Load("blocks/upDown"),  new Vector3(targetBtnDownLoc.transform.position.x, 0, targetBtnDownLoc.transform.position.z), transform.localRotation) as GameObject;
-							btnCube.name = "rowUpBtn" + createField.theTileNames[ DtheRow,Dincre ];
-							btnCube.tag = "rowUpBtn";*/
-						}
-					}
- 
-							
-				}
-			}
+			 
 			
 			
 			
