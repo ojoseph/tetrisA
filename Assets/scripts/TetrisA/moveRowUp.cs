@@ -68,7 +68,7 @@ GameObject connectToGameManager;
 		for(int theRow = 0; theRow < theNumRows; theRow++){
 			for(int incre = 0; incre < 11 ; incre++){
 				
-				print( createField.theTileNames[theRow, incre] + "  " + theRecovered);
+//				print( createField.theTileNames[theRow, incre] + "  " + theRecovered);
 				// If we find the location we start the process
 				if(createField.theTileNames[theRow, incre] == theRecovered){
 					
@@ -86,6 +86,45 @@ GameObject connectToGameManager;
 						
 						
 						
+							// We lock the range  By transfering the value and ajusting the index
+							int qSomeTheRow = zaRowNumber -1;
+							 
+							for(int qOtherTncre = 0; qOtherTncre < 7; qOtherTncre++){
+								//print ("< M#9 > : " + createField.theTileNames[qOtherTncre, qSomeTheRow] + "   " + createField.theField[qOtherTncre, qSomeTheRow]+ "   " + createField.theTileNames[qOtherTncre+1, qSomeTheRow] );
+								
+								//We prevent it from getting out of index, we copy the info in th next cell.
+								if(qOtherTncre +1 < 7){
+									print ("< M#9 > : " + createField.theTileNames[qOtherTncre, qSomeTheRow] + "   <=  " + createField.theTileNames[qOtherTncre+1, qSomeTheRow]);
+								 
+									
+									//We transfer from one to the other.
+									createField.theField[qOtherTncre, qSomeTheRow] = createField.theField[qOtherTncre +1, qSomeTheRow];
+									
+									//We reached the last index, we transfer the tempValue and clear it
+									if(qOtherTncre +1 == 6){
+										
+										//We found the last pos, lets transfer the data
+		//								print("< !!! > Hey we reached the last " + createField.theTileNames[qOtherTncre +1, qSomeTheRow]);
+										createField.theField[qOtherTncre +1, qSomeTheRow] = cubeInMemoVal;
+										
+									}
+									
+									
+									
+									//Once the movement done we should refresh the scen as right now it is called only on each cube movemet
+									// <!> Please refresh the scene!
+									
+									//We Refresh the visuals
+									connectToGameManager = GameObject.Find("gameManager");
+									connectToGameManager.GetComponent<generateCube>().deleteAllCubes();
+									connectToGameManager.GetComponent<generateCube>().generateField();
+									
+								}
+								
+							}// End For
+						
+					
+						
 						
 						
 						break;
@@ -95,6 +134,72 @@ GameObject connectToGameManager;
 							cubeInMemoVal = createField.theField[theRow, incre];
 							zaRowNumber = int.Parse(cubeInMemoName.Replace("G","")); 
 							print ("< GGGG > OH OMG ROW NUMBER: " + zaRowNumber);
+						
+						
+						
+						
+						
+							// We lock the range  By transfering the value and ajusting the index
+							int vSomeTheRow = zaRowNumber -1; 
+							 
+							for(int qOtherTncre = 6; qOtherTncre > -1; qOtherTncre--){
+							
+//								print ("< M#9 > : " + createField.theTileNames[qOtherTncre, vSomeTheRow] + "   " + createField.theField[qOtherTncre, vSomeTheRow]); /* + "   " + createField.theTileNames[qOtherTncre -1, vSomeTheRow] );*/
+								
+								if(qOtherTncre -1 >-1){
+									print ("< R#P > : " + createField.theTileNames[qOtherTncre, vSomeTheRow] + "   <=  " + createField.theTileNames[qOtherTncre-1, vSomeTheRow]);
+									
+									//We transfer from one to the other.
+									createField.theField[qOtherTncre, vSomeTheRow] = createField.theField[qOtherTncre -1, vSomeTheRow];
+								
+									//We reached the last index, we transfer the tempValue and clear it
+									if(qOtherTncre -1 == 0){
+										
+										//We found the last pos, lets transfer the data
+										print("< !!! > Hey we reached the last " + createField.theTileNames[qOtherTncre -1, vSomeTheRow]);
+										createField.theField[qOtherTncre -1, vSomeTheRow] = cubeInMemoVal;
+										
+									}
+								
+									//Once the movement done we should refresh the scen as right now it is called only on each cube movemet
+									// <!> Please refresh the scene!
+									
+									//We Refresh the visuals
+									connectToGameManager = GameObject.Find("gameManager");
+									connectToGameManager.GetComponent<generateCube>().deleteAllCubes();
+									connectToGameManager.GetComponent<generateCube>().generateField();
+								
+								} 
+			 
+							}// End For
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
 						break;
 					}
 					
@@ -103,42 +208,7 @@ GameObject connectToGameManager;
 					
 					
 					
-					// We lock the range  By transfering the value and ajusting the index
-					int qSomeTheRow = zaRowNumber -1;
-					 
-					for(int qOtherTncre = 0; qOtherTncre < 7; qOtherTncre++){
-						//print ("< M#9 > : " + createField.theTileNames[qOtherTncre, qSomeTheRow] + "   " + createField.theField[qOtherTncre, qSomeTheRow]+ "   " + createField.theTileNames[qOtherTncre+1, qSomeTheRow] );
-						
-						//We prevent it from getting out of index, we copy the info in th next cell.
-						if(qOtherTncre +1 < 7){
-							print ("< M#9 > : " + createField.theTileNames[qOtherTncre, qSomeTheRow] + "   <=  " + createField.theTileNames[qOtherTncre+1, qSomeTheRow]);
-						 
-							
-							//We transfer from one to the other.
-							createField.theField[qOtherTncre, qSomeTheRow] = createField.theField[qOtherTncre +1, qSomeTheRow];
-							
-							//We reached the last index, we transfer the tempValue and clear it
-							if(qOtherTncre +1 == 6){
-								
-								//We found the last pos, lets transfer the data
-//								print("< !!! > Hey we reached the last " + createField.theTileNames[qOtherTncre +1, qSomeTheRow]);
-								createField.theField[qOtherTncre +1, qSomeTheRow] = cubeInMemoVal;
-								
-							}
-							
-							
-							
-							//Once the movement done we should refresh the scen as right now it is called only on each cube movemet
-							// <!> Please refresh the scene!
-							
-							//We Refresh the visuals
-							connectToGameManager = GameObject.Find("gameManager");
-							connectToGameManager.GetComponent<generateCube>().deleteAllCubes();
-							connectToGameManager.GetComponent<generateCube>().generateField();
-							
-						}
-						
-					}// End For
+					
 			 
 					
 					
