@@ -84,12 +84,12 @@ public class generateCube : MonoBehaviour {
 			}
 			
 			//Print out the first and last position
-			print ("<0> First pos in this: " + createField.theTileNames[0,someTheRow] );
-			print ("<0> Last pos in this: " + createField.theTileNames[6,someTheRow] );
+//			print ("<0> First pos in this: " + createField.theTileNames[0,someTheRow] );
+//			print ("<0> Last pos in this: " + createField.theTileNames[6,someTheRow] );
 			
 			//////////////
 			//if(anycubeInRow == true){	
-				print("We add a box in here");
+//				print("We add a box in here");
 				GameObject targetBtnDownLoc = new GameObject();
 				targetBtnDownLoc = GameObject.Find(createField.theTileNames[0,someTheRow]);
 			
@@ -107,7 +107,7 @@ public class generateCube : MonoBehaviour {
 				btnCube = Instantiate( Resources.Load("blocks/upDown"),  new Vector3(targetBtnDownLoc.transform.position.x, 0, targetBtnDownLoc.transform.position.z), transform.localRotation) as GameObject;
 				btnCube.name = "rowDownBtn_" + createField.theTileNames[6,someTheRow ];
 				btnCube.tag = "rowDownBtn";
-				
+				btnCube.AddComponent("moveRowUp");
 				
 			//}
 			////////////////
@@ -146,7 +146,7 @@ public class generateCube : MonoBehaviour {
 		//We set the rows
 		for(int theRow = 0 ; theRow < theNumRows; theRow++){
 			
-			print ("< R > Done with a row, so We Roll, we Roll  Row: " + theRow);
+//			print ("< R > Done with a row, so We Roll, we Roll  Row: " + theRow);
 			
 			//We start a new row therfore we havent encounter any empty space
 			generateBtn = false;

@@ -7,12 +7,48 @@ public string theRecovered;
 public string cubeInMemoName;	
 public int cubeInMemoVal;
 public int zaRowNumber;
+
+	
+//Will contain the button name	
+string theButtonName;
+	
+//Handles the direction	
+int theMovement;
 	
 	
 //GameObj that serves to acces the GameManager
 GameObject connectToGameManager;	
 	
 	void OnMouseDown(){
+		
+		
+		//We check on which elm this script is beign attached to.
+		//From that we decide if its a up or a down
+		
+		//We trip up the content so that only the Letter is left
+		theButtonName  = (this.gameObject.name.Substring(this.gameObject.name.Length-2)).Substring(0,1);
+		//theButtonName = theButtonName.Substring(0,1);
+		
+		//We strip out the value and keep only the letter
+		//theButtonName = theButtonName.Substring(1);
+		print("<>  WHAT IS LEFT FROM WHAT HAS BEEN REMOVED!!!!! <> "  + theButtonName);
+		
+		// Depending on which button clicked we change the movement of the cubes.
+		switch(theButtonName){
+			case "A":
+					theMovement = 1;
+				break;
+			
+			case "G":
+					theMovement = -1;
+				break;
+		}
+		
+		
+		
+		
+		
+		
 		print("GOOD LORD YOU HAVE CLICKED ME");
 		
 		// We recover the row
@@ -36,26 +72,26 @@ GameObject connectToGameManager;
 					
 					
 					
-					// We lock th range  By transfering the value and ajusting the index
-					int qSomeTheRow = zaRowNumber-1;
+					// We lock the range  By transfering the value and ajusting the index
+					int qSomeTheRow = zaRowNumber -1;
 					 
 					for(int qOtherTncre = 0; qOtherTncre < 7; qOtherTncre++){
 						//print ("< M#9 > : " + createField.theTileNames[qOtherTncre, qSomeTheRow] + "   " + createField.theField[qOtherTncre, qSomeTheRow]+ "   " + createField.theTileNames[qOtherTncre+1, qSomeTheRow] );
 						
 						//We prevent it from getting out of index, we copy the info in th next cell.
-						if(qOtherTncre+1 < 7){
-							print ("< M#9 > : " + createField.theTileNames[qOtherTncre, qSomeTheRow] + "   <=  " + createField.theTileNames[qOtherTncre+1, qSomeTheRow]);
-							//createField.theField[qOtherTncre, qSomeTheRow] = createField.theField[qOtherTncre+1, qSomeTheRow];
+						if(qOtherTncre +1 < 7){
+//							print ("< M#9 > : " + createField.theTileNames[qOtherTncre, qSomeTheRow] + "   <=  " + createField.theTileNames[qOtherTncre+1, qSomeTheRow]);
+						 
 							
 							//We transfer from one to the other.
-							createField.theField[qOtherTncre, qSomeTheRow] = createField.theField[qOtherTncre + 1, qSomeTheRow];
+							createField.theField[qOtherTncre, qSomeTheRow] = createField.theField[qOtherTncre +1, qSomeTheRow];
 							
 							//We reached the last index, we transfer the tempValue and clear it
-							if(qOtherTncre+1 == 6){
+							if(qOtherTncre +1 == 6){
 								
 								//We found the last pos, lets transfer the data
-								print("< !!! > Hey we reached the last " + createField.theTileNames[qOtherTncre + 1, qSomeTheRow]);
-								createField.theField[qOtherTncre + 1, qSomeTheRow] = cubeInMemoVal;
+								print("< !!! > Hey we reached the last " + createField.theTileNames[qOtherTncre +1, qSomeTheRow]);
+								createField.theField[qOtherTncre +1, qSomeTheRow] = cubeInMemoVal;
 								
 							}
 							
