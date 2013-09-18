@@ -37,10 +37,13 @@ GameObject connectToGameManager;
 		switch(theButtonName){
 			case "A":
 					theMovement = 1;
+					print ("UP MOVEMENT " + theMovement);
 				break;
 			
 			case "G":
+					
 					theMovement = -1;
+					print ("DOWN MOVEMENT " + theMovement);
 				break;
 		}
 		
@@ -49,26 +52,54 @@ GameObject connectToGameManager;
 		
 		
 		
-		print("GOOD LORD YOU HAVE CLICKED ME");
+		print("GOOD LORD YOU HAVE CLICKED ME " + theButtonName);
 		
 		// We recover the row
-		theRecovered = this.gameObject.name.Replace("rowUpBtn","");
-		this.gameObject.name = this.gameObject.name.Replace("rowUpBtn","");
+		theRecovered = this.gameObject.name.Substring(this.gameObject.name.Length-2); //this.gameObject.name.Replace("rowUpBtn","");
+		this.gameObject.name = this.gameObject.name.Substring(this.gameObject.name.Length-2);
 			
+		
+		
+		
+		
+		
 		
 		int theNumRows = (createField.theField.Length/10); 
 		for(int theRow = 0; theRow < theNumRows; theRow++){
 			for(int incre = 0; incre < 11 ; incre++){
 				
-//				print( createField.theTileNames[theRow, incre] + "  " + theRecovered);
+				print( createField.theTileNames[theRow, incre] + "  " + theRecovered);
 				// If we find the location we start the process
 				if(createField.theTileNames[theRow, incre] == theRecovered){
 					
-					// We save the info o the first position in the temp variable
-					cubeInMemoName = createField.theTileNames[theRow, incre];
-					cubeInMemoVal = createField.theField[theRow, incre];
-					zaRowNumber = int.Parse(cubeInMemoName.Replace("A","")); 
-					//print ("< EEEEE > OH OMG ROW NUMBER: " + zaRowNumber);
+					print("G/////////////////RRERWERWE");
+					switch(theButtonName){
+						case "A":
+							// We save the info o the first position in the temp variable
+							cubeInMemoName = createField.theTileNames[theRow, incre];
+							cubeInMemoVal = createField.theField[theRow, incre];
+							zaRowNumber = int.Parse(cubeInMemoName.Replace("A","")); 
+							//print ("< EEEEE > OH OMG ROW NUMBER: " + zaRowNumber);
+						
+						
+						
+						
+						
+						
+						
+						
+						break;
+						case "G":
+							// We save the info o the first position in the temp variable
+							cubeInMemoName = createField.theTileNames[theRow, incre];
+							cubeInMemoVal = createField.theField[theRow, incre];
+							zaRowNumber = int.Parse(cubeInMemoName.Replace("G","")); 
+							print ("< GGGG > OH OMG ROW NUMBER: " + zaRowNumber);
+						break;
+					}
+					
+					
+					
 					
 					
 					
@@ -80,7 +111,7 @@ GameObject connectToGameManager;
 						
 						//We prevent it from getting out of index, we copy the info in th next cell.
 						if(qOtherTncre +1 < 7){
-//							print ("< M#9 > : " + createField.theTileNames[qOtherTncre, qSomeTheRow] + "   <=  " + createField.theTileNames[qOtherTncre+1, qSomeTheRow]);
+							print ("< M#9 > : " + createField.theTileNames[qOtherTncre, qSomeTheRow] + "   <=  " + createField.theTileNames[qOtherTncre+1, qSomeTheRow]);
 						 
 							
 							//We transfer from one to the other.
@@ -90,7 +121,7 @@ GameObject connectToGameManager;
 							if(qOtherTncre +1 == 6){
 								
 								//We found the last pos, lets transfer the data
-								print("< !!! > Hey we reached the last " + createField.theTileNames[qOtherTncre +1, qSomeTheRow]);
+//								print("< !!! > Hey we reached the last " + createField.theTileNames[qOtherTncre +1, qSomeTheRow]);
 								createField.theField[qOtherTncre +1, qSomeTheRow] = cubeInMemoVal;
 								
 							}
@@ -106,7 +137,8 @@ GameObject connectToGameManager;
 							connectToGameManager.GetComponent<generateCube>().generateField();
 							
 						}
-					}
+						
+					}// End For
 			 
 					
 					
