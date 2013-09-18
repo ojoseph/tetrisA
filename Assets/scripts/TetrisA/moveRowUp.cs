@@ -114,7 +114,8 @@ GameObject connectToGameManager;
 									//Once the movement done we should refresh the scen as right now it is called only on each cube movemet
 									// <!> Please refresh the scene!
 								
-									GameObject.Find("gameManager").GetComponent<cubeResolution>().resolve();
+									//We try to resolve the combinaisons
+									//GameObject.Find("gameManager").GetComponent<cubeResolution>().resolve();
 								
 									//We Refresh the visuals
 									connectToGameManager = GameObject.Find("gameManager");
@@ -166,7 +167,8 @@ GameObject connectToGameManager;
 									//Once the movement done we should refresh the scen as right now it is called only on each cube movemet
 									// <!> Please refresh the scene!
 									
-									GameObject.Find("gameManager").GetComponent<cubeResolution>().resolve();
+									//We try to resolve the combinaisons
+									//GameObject.Find("gameManager").GetComponent<cubeResolution>().resolve();
 								
 									//We Refresh the visuals
 									connectToGameManager = GameObject.Find("gameManager");
