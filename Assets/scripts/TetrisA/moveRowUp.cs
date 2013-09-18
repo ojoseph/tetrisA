@@ -94,18 +94,18 @@ GameObject connectToGameManager;
 								
 								//We prevent it from getting out of index, we copy the info in th next cell.
 								if(qOtherTncre +1 < 7){
-									print ("< M#9 > : " + createField.theTileNames[qOtherTncre, qSomeTheRow] + "   <=  " + createField.theTileNames[qOtherTncre+1, qSomeTheRow]);
+									print ("< M#9 > : " + createField.theTileNames[qOtherTncre, qSomeTheRow] + "   <=  " + createField.theTileNames[qOtherTncre +theMovement, qSomeTheRow]);
 								 
 									
 									//We transfer from one to the other.
-									createField.theField[qOtherTncre, qSomeTheRow] = createField.theField[qOtherTncre +1, qSomeTheRow];
+									createField.theField[qOtherTncre, qSomeTheRow] = createField.theField[qOtherTncre +theMovement, qSomeTheRow];
 									
 									//We reached the last index, we transfer the tempValue and clear it
-									if(qOtherTncre +1 == 6){
+									if(qOtherTncre +theMovement == 6){
 										
 										//We found the last pos, lets transfer the data
 		//								print("< !!! > Hey we reached the last " + createField.theTileNames[qOtherTncre +1, qSomeTheRow]);
-										createField.theField[qOtherTncre +1, qSomeTheRow] = cubeInMemoVal;
+										createField.theField[qOtherTncre +theMovement, qSomeTheRow] = cubeInMemoVal;
 										
 									}
 									
@@ -147,17 +147,17 @@ GameObject connectToGameManager;
 //								print ("< M#9 > : " + createField.theTileNames[qOtherTncre, vSomeTheRow] + "   " + createField.theField[qOtherTncre, vSomeTheRow]); /* + "   " + createField.theTileNames[qOtherTncre -1, vSomeTheRow] );*/
 								
 								if(qOtherTncre -1 >-1){
-									print ("< R#P > : " + createField.theTileNames[qOtherTncre, vSomeTheRow] + "   <=  " + createField.theTileNames[qOtherTncre-1, vSomeTheRow]);
+									print ("< R#P > : " + createField.theTileNames[qOtherTncre, vSomeTheRow] + "   <=  " + createField.theTileNames[qOtherTncre +theMovement, vSomeTheRow]);
 									
 									//We transfer from one to the other.
-									createField.theField[qOtherTncre, vSomeTheRow] = createField.theField[qOtherTncre -1, vSomeTheRow];
+									createField.theField[qOtherTncre, vSomeTheRow] = createField.theField[qOtherTncre +theMovement, vSomeTheRow];
 								
 									//We reached the last index, we transfer the tempValue and clear it
 									if(qOtherTncre -1 == 0){
 										
 										//We found the last pos, lets transfer the data
-										print("< !!! > Hey we reached the last " + createField.theTileNames[qOtherTncre -1, vSomeTheRow]);
-										createField.theField[qOtherTncre -1, vSomeTheRow] = cubeInMemoVal;
+										print("< !!! > Hey we reached the last " + createField.theTileNames[qOtherTncre +theMovement, vSomeTheRow]);
+										createField.theField[qOtherTncre +theMovement, vSomeTheRow] = cubeInMemoVal;
 										
 									}
 								
