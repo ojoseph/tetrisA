@@ -33,6 +33,7 @@
 'Assets/scripts/TetrisA/gameManager.cs'
 'Assets/scripts/TetrisA/generateCube.cs'
 'Assets/scripts/TetrisA/moveRowUp.cs'
+'Assets/scripts/TetrisA/scoreManager.cs'
 'Assets/scripts/TetrisA/testCreateCall.cs'
 'Assets/scripts/TetrisA/testDeleteCall.cs'
 'Assets/scripts/calculateReverse.cs'

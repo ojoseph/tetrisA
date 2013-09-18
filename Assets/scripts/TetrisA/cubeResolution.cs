@@ -237,6 +237,13 @@ public class cubeResolution : MonoBehaviour {
 														createField.theField[someTheRow,someIncre] = 0;
 												
 														// <note>The system automatically handles the vitual update.
+												
+														//We Contact the scoreManager and update the score upon each cube delete.
+														scoreManager theActualScore = GetComponent<scoreManager>();
+														//theActualScore.scoreValue +=1;
+														theActualScore.raiseScore();
+												
+												
 														
 													}//End If
 											
@@ -264,7 +271,7 @@ public class cubeResolution : MonoBehaviour {
 								break;
 							}else{
 								memCubeCombi.Add( createField.theTileNames[theRow, incre + dummyIncre]);
-								matchCounter +=1;
+								matchCounter += 1;
 							}
 							
 							
