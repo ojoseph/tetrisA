@@ -72,7 +72,7 @@ GameObject connectToGameManager;
 				// If we find the location we start the process
 				if(createField.theTileNames[theRow, incre] == theRecovered){
 					
-					print("G/////////////////RRERWERWE");
+//					print("G/////////////////RRERWERWE");
 					switch(theButtonName){
 						case "A":
 							// We save the info o the first position in the temp variable
@@ -113,7 +113,9 @@ GameObject connectToGameManager;
 									
 									//Once the movement done we should refresh the scen as right now it is called only on each cube movemet
 									// <!> Please refresh the scene!
-									
+								
+									GameObject.Find("gameManager").GetComponent<cubeResolution>().resolve();
+								
 									//We Refresh the visuals
 									connectToGameManager = GameObject.Find("gameManager");
 									connectToGameManager.GetComponent<generateCube>().deleteAllCubes();
@@ -133,7 +135,7 @@ GameObject connectToGameManager;
 							cubeInMemoName = createField.theTileNames[theRow, incre];
 							cubeInMemoVal = createField.theField[theRow, incre];
 							zaRowNumber = int.Parse(cubeInMemoName.Replace("G","")); 
-							print ("< GGGG > OH OMG ROW NUMBER: " + zaRowNumber);
+//							print ("< GGGG > OH OMG ROW NUMBER: " + zaRowNumber);
 						
 						
 						
@@ -147,7 +149,7 @@ GameObject connectToGameManager;
 //								print ("< M#9 > : " + createField.theTileNames[qOtherTncre, vSomeTheRow] + "   " + createField.theField[qOtherTncre, vSomeTheRow]); /* + "   " + createField.theTileNames[qOtherTncre -1, vSomeTheRow] );*/
 								
 								if(qOtherTncre -1 >-1){
-									print ("< R#P > : " + createField.theTileNames[qOtherTncre, vSomeTheRow] + "   <=  " + createField.theTileNames[qOtherTncre +theMovement, vSomeTheRow]);
+//									print ("< R#P > : " + createField.theTileNames[qOtherTncre, vSomeTheRow] + "   <=  " + createField.theTileNames[qOtherTncre +theMovement, vSomeTheRow]);
 									
 									//We transfer from one to the other.
 									createField.theField[qOtherTncre, vSomeTheRow] = createField.theField[qOtherTncre +theMovement, vSomeTheRow];
@@ -156,7 +158,7 @@ GameObject connectToGameManager;
 									if(qOtherTncre -1 == 0){
 										
 										//We found the last pos, lets transfer the data
-										print("< !!! > Hey we reached the last " + createField.theTileNames[qOtherTncre +theMovement, vSomeTheRow]);
+//										print("< !!! > Hey we reached the last " + createField.theTileNames[qOtherTncre +theMovement, vSomeTheRow]);
 										createField.theField[qOtherTncre +theMovement, vSomeTheRow] = cubeInMemoVal;
 										
 									}
@@ -164,6 +166,8 @@ GameObject connectToGameManager;
 									//Once the movement done we should refresh the scen as right now it is called only on each cube movemet
 									// <!> Please refresh the scene!
 									
+									GameObject.Find("gameManager").GetComponent<cubeResolution>().resolve();
+								
 									//We Refresh the visuals
 									connectToGameManager = GameObject.Find("gameManager");
 									connectToGameManager.GetComponent<generateCube>().deleteAllCubes();
