@@ -63,8 +63,10 @@ public class cubeResolution : MonoBehaviour {
 					cubeMemValue = createField.theField[theRow, incre];
 					
 					//We call the function with the coordinates of the cube we found.
-					lookForMatches(createField.theTileNames[theRow, incre], createField.theField[theRow, incre]);
-					
+					//lookForMatches(createField.theTileNames[theRow, incre], createField.theField[theRow, incre], lookDirection.left);
+					lookForMatches(createField.theTileNames[theRow, incre], createField.theField[theRow, incre], lookDirection.right);
+					//lookForMatches(createField.theTileNames[theRow, incre], createField.theField[theRow, incre], lookDirection.up);
+					/*lookForMatches(createField.theTileNames[theRow, incre], createField.theField[theRow, incre], lookDirection.down);*/
 					
 					
 					
@@ -109,7 +111,7 @@ public class cubeResolution : MonoBehaviour {
 	
 	
 	//void lookForAvailable(lookDirection theWantedDirection ,int theRow, int incre, int firstTkenLocation){
-	void lookForMatches( string theCubeWeFound, int theCubeWeFoundValue){
+	void lookForMatches( string theCubeWeFound, int theCubeWeFoundValue, lookDirection decidedDir){
 		
 			int indexCaseCheckHorizontal = 0;
 			int indexCaseCheckVertical = 0;
@@ -117,7 +119,10 @@ public class cubeResolution : MonoBehaviour {
 			//We declare it before use
 			lookDirection theWantedDirection;
 		
-			theWantedDirection = lookDirection.left;
+			//theWantedDirection = lookDirection.left;
+			//theWantedDirection = decidedDir;
+		
+			theWantedDirection = lookDirection.up;
 		
 			switch(theWantedDirection){
 				case lookDirection.right:
@@ -162,18 +167,18 @@ public class cubeResolution : MonoBehaviour {
 						print ("  ");
 						print ("  ");
 						print ("  ");
-						print ("THE CUBE FOUND: " + theCubeWeFound);
-					 
-					
-					
-						
-					
+						print ("THE CUBE FOUND: " + theCubeWeFound  + " " + theCubeWeFoundValue );
 					
 					
  						memCubeCombi.Clear();
-						//int dummyIncre = 0;
-						int matchCounter= 0;
 					
+					
+					
+					
+						//int dummyIncre = 0;
+						int matchCounter = 0;
+					
+						// <  Left and Right > We look through  the items with a forward movement.
 						//while( createField.theField[theRow, incre+ dummyIncre] != 0 ){
 						for(int dummyIncre = 0; dummyIncre < 11; dummyIncre ++ ){
 			 				
@@ -194,19 +199,21 @@ public class cubeResolution : MonoBehaviour {
 						
 						
 							//print(" Table lenght: " + memCubeCombi.Count);	
+							
 						
+							// < !!! > This one goes from  right to left and gathers the cube all together
 							if(createField.theField[theRow, incre + dummyIncre] != theCubeWeFoundValue){
- 								print ("<!> Not same Leave:" + dummyIncre);
+// 								print ("<!> Not same Leave:" + dummyIncre);
 								
 								//We check which cubes are getting deleted.
 								foreach (string tempItem in memCubeCombi){
-									print ("---- > " + tempItem);
+//									print ("---- > " + tempItem);
 								}
 								
 								//------------------------------------------------------------------------------------
 							
 							
-								print ("<P> We are now starting the deleting process:  " +matchCounter );
+//								print ("<P> We are now starting the deleting process:  " + matchCounter );
 								if( /* dummyIncre >= 3 */   matchCounter >=3  ){
 		 
 	//								print ("<!-!> OK We Copy to Final: " + dummyIncre + "Started with: " + theCubeWeFound + ":  " + theCubeWeFoundValue);
@@ -269,14 +276,15 @@ public class cubeResolution : MonoBehaviour {
 								memCubeCombi.Clear();
 								//dummyIncre = 0;
 								break;
+							
 							}else{
+							
+								//We add the cube in the temporary memory.
 								memCubeCombi.Add( createField.theTileNames[theRow, incre + dummyIncre]);
+								//Raise the number of match
 								matchCounter += 1;
+							
 							}
-							
-							
-							
-							 
 						
 							
 							//dummyIncre+= indexCaseCheckHorizontal; // +1 to the left  <-
@@ -302,6 +310,205 @@ public class cubeResolution : MonoBehaviour {
 					
 					
 					
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						//******
+						//      FROM   TOP TO BOTTOM DETECTION
+						//Will make the same thing as the previous one but taht will take care of gathering the cubes from bottom to top
+						
+						//int dummyIncre = 0;
+						int matchCounter2 = 0;
+					
+						// <  Left and Right > We look through  the items with a forward movement.
+						//while( createField.theField[theRow, incre+ dummyIncre] != 0 ){
+						for(int dummyIncreUp = 0; dummyIncreUp < 7; dummyIncreUp ++ ){
+					 		
+						
+						
+						
+							/*print("AAAAA " + ( theRow + dummyIncreUp) );
+							print("The Row " +  theRow );
+							print("The dummyIncre " + dummyIncreUp);*/
+							print("|||==========|||  " + createField.theTileNames[ dummyIncreUp, incre] + "       " + createField.theField[ dummyIncreUp, incre]);
+							 
+						
+						
+						<!! SAVE POINT !!>
+						
+						
+						
+						
+						//	print("|||==========|||  " + createField.theTileNames[theRow + dummyIncreUp, incre] + "       " + createField.theField[theRow + dummyIncreUp, incre]);
+							
+							/*print("+++++++");
+							print("Dummy " + dummyIncreUp);
+							print("Incre+Row " + (incre+ theRow));
+							print("Incre " +  incre);
+							print("+++++++");*/
+						
+						
+						
+							if( (incre + theRow) < 7 ){
+//								print("|||==========|||  " + createField.theTileNames[incre+ theRow, dummyIncreUp] + "       " + createField.theField[incre+ theRow, dummyIncreUp]);
+							}
+						
+						
+						
+						}
+						
+						
+						print("       " );
+						print("       " );
+						print("       " );
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						   
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+							
+							
+							
+							 
 						
 					
 					

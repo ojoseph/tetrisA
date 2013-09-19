@@ -534,7 +534,7 @@ public class gameEngine : MonoBehaviour {
 		
 		//We randomly choose a  cube type. 
 		
-		switch(3){
+		switch(1){
 		//switch(Random.Range(1,2)){
 			case 1:
 				cubeTemplate = cubeFormTest;

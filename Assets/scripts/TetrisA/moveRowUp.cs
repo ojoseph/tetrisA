@@ -37,13 +37,13 @@ GameObject connectToGameManager;
 		switch(theButtonName){
 			case "A":
 					theMovement = 1;
-					print ("UP MOVEMENT " + theMovement);
+//					print ("UP MOVEMENT " + theMovement);
 				break;
 			
 			case "G":
 					
 					theMovement = -1;
-					print ("DOWN MOVEMENT " + theMovement);
+//					print ("DOWN MOVEMENT " + theMovement);
 				break;
 		}
 		
@@ -52,7 +52,7 @@ GameObject connectToGameManager;
 		
 		
 		
-		print("GOOD LORD YOU HAVE CLICKED ME " + theButtonName);
+//		print("GOOD LORD YOU HAVE CLICKED ME " + theButtonName);
 		
 		// We recover the row
 		theRecovered = this.gameObject.name.Substring(this.gameObject.name.Length-2); //this.gameObject.name.Replace("rowUpBtn","");
@@ -94,7 +94,7 @@ GameObject connectToGameManager;
 								
 								//We prevent it from getting out of index, we copy the info in th next cell.
 								if(qOtherTncre +1 < 7){
-									print ("< M#9 > : " + createField.theTileNames[qOtherTncre, qSomeTheRow] + "   <=  " + createField.theTileNames[qOtherTncre +theMovement, qSomeTheRow]);
+//									print ("< M#9 > : " + createField.theTileNames[qOtherTncre, qSomeTheRow] + "   <=  " + createField.theTileNames[qOtherTncre +theMovement, qSomeTheRow]);
 								 
 									
 									//We transfer from one to the other.

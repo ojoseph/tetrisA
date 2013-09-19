@@ -100,7 +100,7 @@ public class generateCube : MonoBehaviour {
 				
 			
 			
-				print("We add a box in here");
+//				print("We add a box in here");
 				//GameObject targetBtnDownLoc = new GameObject();
 				targetBtnDownLoc = GameObject.Find(createField.theTileNames[6,someTheRow]);
 			
