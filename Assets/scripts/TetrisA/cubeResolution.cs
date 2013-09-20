@@ -15,6 +15,10 @@ public class cubeResolution : MonoBehaviour {
 	public	List<string> memCubeCombi = new List<string>();
 	public	List<string> finalMemCubeCombi = new List<string>();
 	
+	public	List<string> memCubeCombiOther = new List<string>();
+	public	List<string> finalMemCubeCombiOther = new List<string>();
+	
+	
 	//used to assign which direction we want to look at
 	enum lookDirection{
 		left,
@@ -392,10 +396,131 @@ public class cubeResolution : MonoBehaviour {
 							print("The Row " +  theRow );
 							print("The dummyIncre " + dummyIncreUp);*/
 							print("|||==========|||  " + createField.theTileNames[ dummyIncreUp, incre] + "       " + createField.theField[ dummyIncreUp, incre]);
-							 
+							//print("|||  NEXT BELOW  |||  " + createField.theTileNames[ dummyIncreUp, incre] + "       " + createField.theField[ dummyIncreUp, incre]); 
+							
+							//We check if the next item is the same as the  cube we found.
+							if(createField.theField[ dummyIncreUp, incre] != theCubeWeFoundValue){
+							
+									if( /* dummyIncre >= 3 */   matchCounter2 >=3  ){
+								
+										finalMemCubeCombiOther = memCubeCombiOther;
+								
+										for( int t = 0; t < memCubeCombiOther.Count; t++){
+											
+											
+									
+											
+									
+									
+									
+											//Loop until we recover the position of the current index [t]
+											int someNumRowsOther = (createField.theField.Length/10); 
+											for(int someTheRowOther = 0; someTheRowOther < theNumRows; someTheRowOther++){
+												for(int someIncre = 0; someIncre < 11; someIncre++){
+													
+													//We check if the position held by the table matches the index in the loop. If so we delete the info from the main table.
+													if(memCubeCombiOther[t] == createField.theTileNames[someTheRowOther, someIncre]){
+														
+														//The data value held i the temp table has been recovered.
+	//													print ("<!> ==>   We delete the data at position   <== <!>" + createField.theTileNames[someTheRow,someIncre]+ "  " + createField.theField[someTheRow,someIncre]);
+												
+														//We delete the information contained in the real table
+														createField.theField[someTheRowOther,someIncre] = 0;
+												
+														// <note>The system automatically handles the vitual update.
+												
+														//We Contact the scoreManager and update the score upon each cube delete.
+														scoreManager theActualScore = GetComponent<scoreManager>();
+														//theActualScore.scoreValue +=1;
+														theActualScore.raiseScore();
+												
+												
+														
+													}//End If
+											
+											
+												}//End for
+											}//EndFor
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+										}//End For
+											
+										
+								
+										//Small For each that check the output
+										foreach (string tempItem in memCubeCombi){
+											print ("==> " + tempItem);
+										}
+										//memCubeCombi.Clear();
+										break;
+								
+								
+								
+									}
+							
+								memCubeCombiOther.Clear();
+								//dummyIncre = 0;
+								break;
+							
+							}else{
+							
+								//We add the cube in the temporary memory.
+								memCubeCombiOther.Add( createField.theTileNames[ dummyIncreUp, incre] );
+								//Raise the number of match
+								matchCounter2 += 1;
+							
+							}
+						 
 						
 						
-						<!! SAVE POINT !!>
+						 
+							
+							
+							
+							
+						
+						
+						
+						
+						
+						
 						
 						
 						
