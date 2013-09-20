@@ -67,11 +67,12 @@ public class cubeResolution : MonoBehaviour {
 					cubeMemValue = createField.theField[theRow, incre];
 					
 					//We call the function with the coordinates of the cube we found.
-					//lookForMatches(createField.theTileNames[theRow, incre], createField.theField[theRow, incre], lookDirection.left);
-					lookForMatches(createField.theTileNames[theRow, incre], createField.theField[theRow, incre], lookDirection.right);
-					//lookForMatches(createField.theTileNames[theRow, incre], createField.theField[theRow, incre], lookDirection.up);
-					/*lookForMatches(createField.theTileNames[theRow, incre], createField.theField[theRow, incre], lookDirection.down);*/
+					lookForMatches(createField.theTileNames[theRow, incre], createField.theField[theRow, incre], lookDirection.left);
+				 
 					
+					
+					//StartCoroutine(lookForMatches(createField.theTileNames[theRow, incre], createField.theField[theRow, incre], lookDirection.right));
+					 
 					
 					
 					
@@ -116,6 +117,7 @@ public class cubeResolution : MonoBehaviour {
 	
 	//void lookForAvailable(lookDirection theWantedDirection ,int theRow, int incre, int firstTkenLocation){
 	void lookForMatches( string theCubeWeFound, int theCubeWeFoundValue, lookDirection decidedDir){
+	//IEnumerator lookForMatches( string theCubeWeFound, int theCubeWeFoundValue, lookDirection decidedDir){
 		
 			int indexCaseCheckHorizontal = 0;
 			int indexCaseCheckVertical = 0;
@@ -179,7 +181,11 @@ public class cubeResolution : MonoBehaviour {
 					
 					
 					
-						//int dummyIncre = 0;
+					
+						//------------START LINE RESOLUTION					
+						///////
+					
+							//int dummyIncre = 0;
 						int matchCounter = 0;
 					
 						// <  Left and Right > We look through  the items with a forward movement.
@@ -192,7 +198,7 @@ public class cubeResolution : MonoBehaviour {
 							/*if( createField.theField[theRow, incre + dummyIncre] == 0){
 								print ("<Q> LOG OUT <Q>");
 								break;
-							} */
+							}  */
 						
 							//Add each value in the 
 //							print ("<!> Check Dummy:" + dummyIncre + "  " +createField.theTileNames[theRow, incre + dummyIncre]);
@@ -310,10 +316,84 @@ public class cubeResolution : MonoBehaviour {
 					
 						//*****************************************
 					
+						////////
+						//------------END LINE RESOLUTION
+					
+						
+						
+						
+						
+						
+						
 					
 					
 					
 					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
 						
 						
 						
@@ -364,13 +444,7 @@ public class cubeResolution : MonoBehaviour {
 						
 						
 						
-						
-						
-						
-						
-						
-						
-						
+						//yield return new WaitForSeconds(0);
 						
 						
 						
@@ -400,6 +474,11 @@ public class cubeResolution : MonoBehaviour {
 							
 							//We check if the next item is the same as the  cube we found.
 							if(createField.theField[ dummyIncreUp, incre] != theCubeWeFoundValue){
+								
+								//We check which cubes are getting deleted.
+								foreach (string tempItemOther in memCubeCombiOther){
+									print ("---- > " + tempItemOther );
+								}
 							
 									if( /* dummyIncre >= 3 */   matchCounter2 >=3  ){
 								
@@ -422,7 +501,7 @@ public class cubeResolution : MonoBehaviour {
 													if(memCubeCombiOther[t] == createField.theTileNames[someTheRowOther, someIncre]){
 														
 														//The data value held i the temp table has been recovered.
-	//													print ("<!> ==>   We delete the data at position   <== <!>" + createField.theTileNames[someTheRow,someIncre]+ "  " + createField.theField[someTheRow,someIncre]);
+	 													print ("<!> ==>   We delete the data at position   <== <!>" + createField.theTileNames[someTheRowOther, someIncre]+ "  " + createField.theField[someTheRowOther, someIncre]);
 												
 														//We delete the information contained in the real table
 														createField.theField[someTheRowOther,someIncre] = 0;
@@ -485,8 +564,8 @@ public class cubeResolution : MonoBehaviour {
 										
 								
 										//Small For each that check the output
-										foreach (string tempItem in memCubeCombi){
-											print ("==> " + tempItem);
+										foreach (string tempItemOther in memCubeCombiOther){
+											print ("==> " + tempItemOther);
 										}
 										//memCubeCombi.Clear();
 										break;
@@ -502,6 +581,7 @@ public class cubeResolution : MonoBehaviour {
 							}else{
 							
 								//We add the cube in the temporary memory.
+								print ("< ### > What is being saved in the memory !!!! " + createField.theTileNames[ dummyIncreUp, incre ] );
 								memCubeCombiOther.Add( createField.theTileNames[ dummyIncreUp, incre] );
 								//Raise the number of match
 								matchCounter2 += 1;

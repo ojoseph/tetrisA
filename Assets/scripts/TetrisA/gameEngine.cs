@@ -79,13 +79,13 @@ public class gameEngine : MonoBehaviour {
 	
 	public static int[,] cubeTemplate = new int[,]
 	{
-	    {3,3,3}, //A
-		{2,2,2}, //B
-		{2,2,2}, //C
-		{3,3,3}, //D
-		{2,2,2}, //E
-		{4,4,4}, //F
-		{1,1,1}, //G
+	    {2}, //A
+		{2}, //B
+		{2}, //C
+		{2}, //D
+		{3}, //E
+		{4}, //F
+		{1}, //G
 	};
 	
 	
