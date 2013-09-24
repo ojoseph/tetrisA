@@ -534,7 +534,7 @@ public class gameEngine : MonoBehaviour {
 		
 		//We randomly choose a  cube type. 
 		
-		switch(1){
+		switch(3){
 		//switch(Random.Range(1,2)){
 			case 1:
 				cubeTemplate = cubeFormTest;
@@ -572,7 +572,7 @@ public class gameEngine : MonoBehaviour {
 		
 		
 		
-		//return cubeTemplate;
+		//Return cubeTemplate;
 		
 		//print("++" + createField.theField.Length);
 		

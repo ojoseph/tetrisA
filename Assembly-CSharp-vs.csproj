@@ -58,6 +58,7 @@
      <Compile Include="Assets\scripts\createMap.cs" />
      <Compile Include="Assets\scripts\gameClear.cs" />
      <Compile Include="Assets\scripts\gameplay.cs" />
+     <Compile Include="Assets\scripts\goToTitle.cs" />
      <Compile Include="Assets\scripts\playAgain.cs" />
      <Compile Include="Assets\scripts\replaceToken.cs" />
      <Compile Include="Assets\scripts\showSkip.cs" />
