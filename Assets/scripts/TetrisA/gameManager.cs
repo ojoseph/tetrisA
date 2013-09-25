@@ -21,6 +21,7 @@ public class gameManager : MonoBehaviour {
 		opponent
 		
 	}
+	
 	public static playState currPlayState; 
 	/*public enum whoTurns{
 		waitingPlayer,
@@ -39,7 +40,7 @@ public class gameManager : MonoBehaviour {
 		
 		//We Init the game
 		theCurrGameState = gameState.initialize;
-		
+		print("<B> We boot the Game: " + theCurrGameState);
 		//theCurrTurn = whoTurns.player;
 	}
 	
@@ -71,10 +72,14 @@ public class gameManager : MonoBehaviour {
 			break;
 			
 			case gameState.playGame:
-			 
+			
+			 	//print ("<!> Enter Play Game  " + gameState.playGame + "<!>");
+				
+//				print ("<!> gameEngine " + currPlayState + "<!>");
+			
 				switch(currPlayState){
 					
-					case  playState.movingCubes:
+					case playState.movingCubes:
 						print ("<!> gameEngine <!>");
 				
 						gameEngine theGameEngine = GetComponent<gameEngine>();
@@ -89,6 +94,7 @@ public class gameManager : MonoBehaviour {
 			case gameState.gameOver:
 				//loadGameOverGameManager();
 				StartCoroutine("loadGameOver");
+				currPlayState = playState.movingCubes; 
 			break;
 		}
 	}

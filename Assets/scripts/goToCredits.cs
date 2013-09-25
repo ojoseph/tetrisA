@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class playAgain : MonoBehaviour {
+public class goToCredits : MonoBehaviour {
 	
 	public AudioClip startScreenPingSound;
 	
@@ -12,15 +12,15 @@ public class playAgain : MonoBehaviour {
 		
 		audio.PlayOneShot(startScreenPingSound, 1.0F);
 		animation.Play("startButtonAnim");
-		StartCoroutine("restartGame");
+		StartCoroutine("goCredits");
 		
 		
 	}
 	
 	
 	
-	IEnumerator restartGame(){
+	IEnumerator goCredits(){
 		yield return new WaitForSeconds(1);
-		Application.LoadLevel("gameScene");	
+		Application.LoadLevel("credits");	
 	}
 }

@@ -27,6 +27,7 @@
 -define:UNITY_4_1
 -define:ENABLE_PROFILER
 -define:UNITY_EDITOR
+'Assets/scripts/TetrisA/backToMainScreen.cs'
 'Assets/scripts/TetrisA/createField.cs'
 'Assets/scripts/TetrisA/cubeResolution.cs'
 'Assets/scripts/TetrisA/gameEngine.cs'
@@ -41,6 +42,7 @@
 'Assets/scripts/createMap.cs'
 'Assets/scripts/gameClear.cs'
 'Assets/scripts/gameplay.cs'
+'Assets/scripts/goToCredits.cs'
 'Assets/scripts/goToTitle.cs'
 'Assets/scripts/playAgain.cs'
 'Assets/scripts/replaceToken.cs'

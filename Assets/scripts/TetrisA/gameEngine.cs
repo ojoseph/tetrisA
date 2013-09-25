@@ -52,8 +52,8 @@ public class gameEngine : MonoBehaviour {
 	
 	public static int[,] cubeFormTest3 = new int[,]
 	{
-	    {5,2,3}, //A
-		{5,5,3}, //B
+	    {0,0,5}, //A
+		{0,0,5}, //B
 		{0,0,5}, //C
 		{0,0,3}, //D
 		{0,5,4}, //E
@@ -150,7 +150,7 @@ public class gameEngine : MonoBehaviour {
 	public void initMe (){
 		
 		
-		print("++++++++++  " +  changeRow  + "  ++++++++++");
+//		print("++++++++++  " +  changeRow  + "  ++++++++++");
 		//0. We create a row and add the info in the array.
 		//1. We loop through the cubes we want to add.	We check the content of each cell.	
 		//2. We copy all the info into the top row of the array
@@ -297,7 +297,7 @@ public class gameEngine : MonoBehaviour {
 			//Invoke("moveBlocks", 1);
 			
 			
-			print ("<$$$> We are done Looping" + nbOfRowsViewd);
+//			print ("<$$$> We are done Looping" + nbOfRowsViewd);
 		}
 		
 		
@@ -514,7 +514,7 @@ public class gameEngine : MonoBehaviour {
 				//print ( "<#>       " + createField.theTileNames[theRow, incre] + ":   " + createField.theField[theRow, incre].ToString() + "      <#>");
 				
 				if(createField.theField[theRow, incre]  != 0){
-					print("////////////  WE CANT MOVE ANYMOOOOOOOORE  ////////////");
+//					print("////////////  WE CANT MOVE ANYMOOOOOOOORE  ////////////");
 					
 					isThereSomeSpace = false;
 				}

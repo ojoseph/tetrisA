@@ -8,6 +8,9 @@ public string cubeInMemoName;
 public int cubeInMemoVal;
 public int zaRowNumber;
 
+//public AudioClip startScreenPingSound;
+public AudioClip startScreenPingSound;		
+	
 	
 //Will contain the button name	
 string theButtonName;
@@ -19,8 +22,44 @@ int theMovement;
 //GameObj that serves to acces the GameManager
 GameObject connectToGameManager;	
 	
+
+	void Start(){
+		
+		
+		
+		theButtonName  = (this.gameObject.name.Substring(this.gameObject.name.Length-2)).Substring(0,1);
+		//theButtonName = theButtonName.Substring(0,1);
+		
+		//We strip out the value and keep only the letter
+		//theButtonName = theButtonName.Substring(1);
+//		print("<>  WHAT IS LEFT FROM WHAT HAS BEEN REMOVED!!!!! <> "  + theButtonName);
+		
+		// Depending on which button clicked we change the movement of the cubes.
+		switch(theButtonName){
+			case "A":
+			
+				//We set the audio for the up Position
+				startScreenPingSound = Resources.Load("audio/FX/pingSound_up") as AudioClip;
+			
+			break;
+			
+			case "G":
+			
+				//We set the audio for the down Position
+				startScreenPingSound = Resources.Load("audio/FX/pingSound_down") as AudioClip;
+			
+			break;
+		}
+		
+	}
+	
+	
 	void OnMouseDown(){
 		
+		//We play the sound
+		AudioSource.PlayClipAtPoint(startScreenPingSound,Camera.main.transform.position, 0.5F);
+		
+		 
 		
 		//We check on which elm this script is beign attached to.
 		//From that we decide if its a up or a down
@@ -75,6 +114,7 @@ GameObject connectToGameManager;
 //					print("G/////////////////RRERWERWE");
 					switch(theButtonName){
 						case "A":
+						
 							// We save the info o the first position in the temp variable
 							cubeInMemoName = createField.theTileNames[theRow, incre];
 							cubeInMemoVal = createField.theField[theRow, incre];

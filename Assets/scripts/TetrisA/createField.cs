@@ -374,6 +374,8 @@ public class createField : MonoBehaviour {
 	
 	void tableMapInfo(){
 		
+		 
+		
 		compile = "";
 		int theNumRows = (theField.Length/elmByRows);  
 		

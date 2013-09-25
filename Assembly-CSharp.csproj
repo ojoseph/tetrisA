@@ -44,6 +44,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\scripts\TetrisA\backToMainScreen.cs" />
      <Compile Include="Assets\scripts\TetrisA\createField.cs" />
      <Compile Include="Assets\scripts\TetrisA\cubeResolution.cs" />
      <Compile Include="Assets\scripts\TetrisA\gameEngine.cs" />
@@ -58,6 +59,7 @@
      <Compile Include="Assets\scripts\createMap.cs" />
      <Compile Include="Assets\scripts\gameClear.cs" />
      <Compile Include="Assets\scripts\gameplay.cs" />
+     <Compile Include="Assets\scripts\goToCredits.cs" />
      <Compile Include="Assets\scripts\goToTitle.cs" />
      <Compile Include="Assets\scripts\playAgain.cs" />
      <Compile Include="Assets\scripts\replaceToken.cs" />

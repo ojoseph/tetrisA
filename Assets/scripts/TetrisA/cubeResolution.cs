@@ -170,10 +170,10 @@ public class cubeResolution : MonoBehaviour {
 					//We try to recover the location,
 					if(createField.theTileNames[theRow, incre] == theCubeWeFound){
  						
+					/*	print ("  ");
 						print ("  ");
 						print ("  ");
-						print ("  ");
-						print ("THE CUBE FOUND: " + theCubeWeFound  + " " + theCubeWeFoundValue );
+						print ("THE CUBE FOUND: " + theCubeWeFound  + " " + theCubeWeFoundValue );*/
 					
 					
  						memCubeCombi.Clear();
@@ -457,7 +457,7 @@ public class cubeResolution : MonoBehaviour {
 						//Will make the same thing as the previous one but taht will take care of gathering the cubes from bottom to top
 						
 						//int dummyIncre = 0;
-						int matchCounter2 = 0;
+					/*	int matchCounter2 = 0;
 					
 						// <  Left and Right > We look through  the items with a forward movement.
 						//while( createField.theField[theRow, incre+ dummyIncre] != 0 ){
@@ -465,10 +465,7 @@ public class cubeResolution : MonoBehaviour {
 					 		
 						
 						
-						
-							/*print("AAAAA " + ( theRow + dummyIncreUp) );
-							print("The Row " +  theRow );
-							print("The dummyIncre " + dummyIncreUp);*/
+						 
 							print("|||==========|||  " + createField.theTileNames[ dummyIncreUp, incre] + "       " + createField.theField[ dummyIncreUp, incre]);
 							//print("|||  NEXT BELOW  |||  " + createField.theTileNames[ dummyIncreUp, incre] + "       " + createField.theField[ dummyIncreUp, incre]); 
 							
@@ -480,7 +477,7 @@ public class cubeResolution : MonoBehaviour {
 									print ("---- > " + tempItemOther );
 								}
 							
-									if( /* dummyIncre >= 3 */   matchCounter2 >=3  ){
+									if(   matchCounter2 >=3  ){
 								
 										finalMemCubeCombiOther = memCubeCombiOther;
 								
@@ -607,12 +604,7 @@ public class cubeResolution : MonoBehaviour {
 						
 						//	print("|||==========|||  " + createField.theTileNames[theRow + dummyIncreUp, incre] + "       " + createField.theField[theRow + dummyIncreUp, incre]);
 							
-							/*print("+++++++");
-							print("Dummy " + dummyIncreUp);
-							print("Incre+Row " + (incre+ theRow));
-							print("Incre " +  incre);
-							print("+++++++");*/
-						
+					 
 						
 						
 							if( (incre + theRow) < 7 ){
@@ -621,12 +613,12 @@ public class cubeResolution : MonoBehaviour {
 						
 						
 						
-						}
+						}*/
 						
 						
+/*						print("       " );
 						print("       " );
-						print("       " );
-						print("       " );
+						print("       " );*/
 						
 						
 						
