@@ -399,6 +399,8 @@ public class createField : MonoBehaviour {
 	//Debug Tool
 	void OnGUI(){
 		
+		
+		
 		GUI.Label (new Rect (25, 550, 3000, 300), "Array:\n" + compile);
 		
 	}

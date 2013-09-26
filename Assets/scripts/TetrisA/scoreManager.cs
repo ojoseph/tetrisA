@@ -33,9 +33,14 @@ public int scoreValue = 0;
 	//Debug Tool
 	void OnGUI(){
 		
+		// Create style for a button
+		GUIStyle myButtonStyle = new GUIStyle();
+		myButtonStyle.fontSize = 30;
+		myButtonStyle.normal.textColor = Color.black;
+		
 		//Will handle updating the score. and we multiply it by 10 to make it look cool
-		GUI.Label (new Rect (25, 25, 400, 300), "Score: " + scoreValue*10 );
-		GUI.Label (new Rect (25, 45, 400, 300), "Top Score: " +  topScore*10);
+		GUI.Label (new Rect (25, 25, 400, 300), "Score: " + scoreValue*10, myButtonStyle );
+		GUI.Label (new Rect (25, 65, 400, 300), "Top Score: " +  topScore*10, myButtonStyle);
 		
 		
 	}
